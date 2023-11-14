@@ -95,30 +95,30 @@ It's important to keep all the files which have been already updated. These file
 ```css
 /* file: /src/styles/base.css */
 @layer base {
-  /* Other Codes */
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-skin-card-muted;
-  }
+	/* Other Codes */
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-skin-card-muted;
+	}
 
-  /* Old code
+	/* Old code
   code {
     white-space: pre;
     overflow: scroll;
   } 
   */
 
-  /* New code */
-  code,
-  blockquote {
-    word-wrap: break-word;
-  }
-  pre > code {
-    white-space: pre;
-  }
+	/* New code */
+	code,
+	blockquote {
+		word-wrap: break-word;
+	}
+	pre > code {
+		white-space: pre;
+	}
 }
 
 @layer components {
-  /* other codes */
+	/* other codes */
 }
 ```
 
@@ -141,9 +141,9 @@ For example: `src/components/Card.tsx`
 import type { BlogFrontmatter } from "@content/_schemas";
 
 export interface Props {
-  href?: string;
-  frontmatter: BlogFrontmatter;
-  secHeading?: boolean;
+	href?: string;
+	frontmatter: BlogFrontmatter;
+	secHeading?: boolean;
 }
 ```
 
@@ -152,9 +152,9 @@ export interface Props {
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-  href?: string;
-  frontmatter: CollectionEntry<"blog">["data"];
-  secHeading?: boolean;
+	href?: string;
+	frontmatter: CollectionEntry<"blog">["data"];
+	secHeading?: boolean;
 }
 ```
 

@@ -46,10 +46,10 @@ If you omit `tags` in a blog post (in other words, if no tag is specified), the 
 ```ts
 // src/content/config.ts
 export const blogSchema = z.object({
-  // ---
-  draft: z.boolean().optional(),
-  tags: z.array(z.string()).default(["others"]), // replace "others" with whatever you want
-  // ---
+	// ---
+	draft: z.boolean().optional(),
+	tags: z.array(z.string()).default(["others"]), // replace "others" with whatever you want
+	// ---
 });
 ```
 

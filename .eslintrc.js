@@ -9,6 +9,7 @@ module.exports = {
 		ecmaVersion: "latest",
 		sourceType: "module",
 	},
+
 	overrides: [
 		{
 			files: ["*.astro"],
@@ -19,5 +20,24 @@ module.exports = {
 			},
 			rules: {},
 		},
+		{
+			files: ["*.ts", "*.tsx"],
+			parser: "@typescript-eslint/parser",
+			plugins: ["@typescript-eslint"],
+			rules: {
+				"@typescript-eslint/array-type": [
+					"error",
+					{ default: "generic", readonly: "generic" },
+				],
+				"@typescript-eslint/consistent-type-definitions": ["error", "type"],
+				"@typescript-eslint/indent": "off",
+			},
+		},
 	],
+
+	rules: {
+		"arrow-parens": ["error", "always"],
+		curly: ["error", "all"],
+		indent: "off",
+	},
 };

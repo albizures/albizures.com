@@ -8,16 +8,14 @@ export type Site = {
 	postPerPage: number;
 };
 
-export type SocialObjects = {
+export type SocialObjects = Array<{
 	name: SocialMedia;
 	href: string;
 	active: boolean;
 	linkTitle: string;
-}[];
+}>;
 
-export type SocialIcons = {
-	[social in SocialMedia]: string;
-};
+export type SocialIcons = Record<SocialMedia, string>;
 
 export type SocialMedia =
 	| "Github"
