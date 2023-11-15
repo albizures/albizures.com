@@ -5,32 +5,41 @@
 @layer base {
 	:root,
 	html[data-theme='light'] {
-		--color-fill: 251, 254, 251;
-		--color-text-base: 40, 39, 40;
-		--color-accent: 0, 108, 172;
-		--color-card: 230, 230, 230;
-		--color-card-muted: 205, 205, 205;
-		--color-border: 236, 233, 233;
+		/* oklch(63.23% 0.083 231.09) */
+
+		--primary: 56.23% 0.147 231.09;
+		--primary-content: 95% 0.0383 231.09;
+		--primary-accent: 72% 0.113 231.09;
+
+		/* oklch(88.73% 0.083 78.81) */
+
+		--secondary: 56.23% 0.147 78.81;
+		--secondary-content: 95% 0.0383 78.81;
+		--secondary-accent: 72% 0.113 78.81;
+
+		--base-300: 98% 0 0;
+		--base-200: 90% 0 0;
+		--base-100: 80% 0 0;
+		--base-content: 10% 0 0;
 	}
 	html[data-theme='dark'] {
-		--color-fill: 33, 39, 55;
-		--color-text-base: 234, 237, 243;
-		--color-accent: 255, 107, 1;
-		--color-card: 52, 63, 96;
-		--color-card-muted: 138, 51, 2;
-		--color-border: 171, 75, 8;
+		/* oklch(69.86% 0.17 52.39) */
 
-		--primary: 72% 0.143 44.99;
-		--primary-content: 25% 0.0383 44.99;
-		--primary-accent: 62% 0.143 44.99;
+		--primary: 69.86% 0.17 52.39;
+		--primary-content: 25% 0.0383 52.39;
+		--primary-accent: 62% 0.143 52.39;
 
-		--secondary: 72% 0.143 120.73;
-		--secondary-content: 25% 0.0383 120.73;
-		--secondary-accent: 62% 0.143 120.73;
+		/* oklch(69.12% 0.042 288.4) */
 
-		--base-300: 21% 0 0;
-		--base-200: 23% 0 0;
-		--base-100: 25% 0 0;
+		--secondary: 69.86% 0.097 288.4;
+		--secondary-content: 25% 0.0383 288.4;
+		--secondary-accent: 62% 0.143 288.4;
+
+		/* oklch(31.88% 0.025 328.86) */
+		--base-300: 9% 0.025 328.86;
+		--base-200: 14% 0.025 328.86;
+		--base-100: 19% 0.025 328.86;
+		--base-content: 98% 0.015 328.86;
 	}
 	#sun-svg,
 	html[data-theme='dark'] #moon-svg {
@@ -41,48 +50,74 @@
 		display: block;
 	}
 	body {
-		@apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-skin-base 
-    selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
+		@apply bg-base-300 text-base-content flex min-h-[100svh] flex-col font-mono;
+		@apply selection:bg-secondary-accent selection:text-secondary-content selection:bg-opacity-60;
 	}
 	section,
 	footer {
 		@apply mx-auto max-w-3xl px-4;
 	}
+
 	a {
-		@apply outline-2 outline-offset-1 outline-skin-fill 
-    focus-visible:no-underline focus-visible:outline-dashed;
+		@apply outline-primary-accent outline-2 outline-offset-1;
+		@apply focus-visible:no-underline focus-visible:outline-dashed;
 	}
+
 	svg {
-		@apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
+		@apply fill-primary group-hover:fill-primary-accent inline-block h-6 w-6;
 	}
 	svg.icon-tabler {
 		@apply inline-block h-6 w-6 scale-125 fill-transparent 
     stroke-current stroke-2 opacity-90 group-hover:fill-transparent 
     sm:scale-110;
 	}
-	.prose {
-		@apply prose-headings:!mb-3 prose-headings:!text-skin-base 
-    prose-h3:italic prose-p:!text-skin-base 
-    prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8
-    hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent
-    prose-blockquote:border-opacity-50 prose-blockquote:opacity-80
-    prose-figcaption:!text-skin-base prose-figcaption:opacity-70
-    prose-strong:!text-skin-base
 
-    
-    prose-code:rounded prose-code:bg-skin-card 
-    prose-code:bg-opacity-75 prose-code:p-1 prose-code:!text-skin-base 
-    prose-code:before:!content-[''] prose-code:after:!content-['']
-    prose-pre:!text-skin-base prose-ol:!text-skin-base 
-    prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent
-    prose-table:text-skin-base prose-th:border
-    prose-th:border-skin-line prose-td:border 
-    prose-td:border-skin-line prose-img:mx-auto 
-    prose-img:!mt-2 prose-img:border-2 
-    prose-img:border-skin-line prose-hr:!border-skin-line;
+	.prose {
+		/* headings */
+		@apply prose-headings:!text-base-content
+		prose-headings:!mb-3 
+    prose-h3:italic;
+
+		/* links */
+		@apply prose-a:!text-base-content
+		hover:prose-a:text-primary
+		prose-a:!decoration-primary-accent 
+		prose-a:!font-semibold
+		prose-a:!decoration-dashed
+		prose-a:underline-offset-8;
+
+		/* list */
+		@apply prose-ol:!text-base-content prose-li:marker:!text-primary
+		prose-ul:!text-base-content
+		prose-ul:overflow-x-clip
+		prose-th:border;
+
+		/* img */
+		@apply prose-img:border-primary-accent prose-img:!mt-2 
+    prose-img:border-2;
+
+		/* code */
+		@apply prose-code:!text-base-content 
+		prose-code:bg-secondary-content prose-code:border-secondary-accent
+		prose-code:rounded prose-code:border prose-code:border-opacity-50 prose-code:bg-opacity-100 
+    prose-code:p-1 prose-code:before:!content-[''] prose-code:after:!content-[''];
+
+		/* table */
+		@apply prose-table:text-base-content
+		prose-th:border-primary-accent prose-td:border-primary-accent 
+    prose-td:border prose-img:mx-auto;
+
+		/* others */
+		@apply prose-figcaption:!text-base-content prose-strong:!text-base-content 
+    prose-pre:!text-base-content 
+		prose-p:!text-base-content
+    prose-blockquote:!border-l-primary 
+    prose-hr:!border-primary 
+    prose-blockquote:border-opacity-50 prose-blockquote:opacity-80 
+    prose-figcaption:opacity-70;
 	}
 	.prose a {
-		@apply break-words hover:!text-skin-accent;
+		@apply hover:!text-primary break-words;
 	}
 	.prose thead th:first-child,
 	tbody td:first-child,
@@ -93,7 +128,7 @@
 		@apply mb-2;
 	}
 	.prose details {
-		@apply inline-block cursor-pointer select-none text-skin-base;
+		@apply text-base-content inline-block cursor-pointer select-none;
 	}
 	.prose summary {
 		@apply focus-outline;
@@ -108,24 +143,24 @@
 	}
 
 	/* width */
-	::-webkit-scrollbar {
-		@apply w-3;
-	}
+	/* ::-webkit-scrollbar {
+		@apply h-3 w-3;
+	} */
 
 	/* Track */
-	::-webkit-scrollbar-track {
-		@apply bg-skin-fill;
-	}
+	/* ::-webkit-scrollbar-track {
+		@apply bg-base-100;
+	} */
 
 	/* Handle */
-	::-webkit-scrollbar-thumb {
-		@apply bg-skin-card;
-	}
+	/* ::-webkit-scrollbar-thumb {
+		@apply bg-primary-content;
+	} */
 
 	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		@apply bg-skin-card-muted;
-	}
+	/* ::-webkit-scrollbar-thumb:hover {
+		@apply bg-primary-accent;
+	} */
 
 	code,
 	blockquote {
@@ -142,7 +177,7 @@
 		@apply hidden;
 	}
 	.focus-outline {
-		@apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
+		@apply outline-primary-accent outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;
 	}
 
 	.btn {

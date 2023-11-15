@@ -32,7 +32,7 @@ export const LOGO_IMAGE = {
 export const SOCIALS: Array<SocialMetaData> = [
 	{
 		name: 'Github',
-		href: 'https://github.com/satnaing/astro-paper',
+		href: 'https://github.com/albizures',
 		linkTitle: ` ${SITE.title} on Github`,
 		active: true,
 	},
@@ -40,31 +40,31 @@ export const SOCIALS: Array<SocialMetaData> = [
 		name: 'Facebook',
 		href: 'https://github.com/satnaing/astro-paper',
 		linkTitle: `${SITE.title} on Facebook`,
-		active: true,
+		active: false,
 	},
 	{
 		name: 'Instagram',
-		href: 'https://github.com/satnaing/astro-paper',
+		href: 'https://instagram.com/albzrs',
 		linkTitle: `${SITE.title} on Instagram`,
 		active: true,
 	},
 	{
 		name: 'LinkedIn',
-		href: 'https://github.com/satnaing/astro-paper',
+		href: 'https://www.linkedin.com/in/albizures/',
 		linkTitle: `${SITE.title} on LinkedIn`,
 		active: true,
 	},
 	{
 		name: 'Mail',
-		href: 'mailto:yourmail@gmail.com',
+		href: 'mailto:jose@albizures.com',
 		linkTitle: `Send an email to ${SITE.title}`,
-		active: false,
+		active: true,
 	},
 	{
 		name: 'Twitter',
-		href: 'https://github.com/satnaing/astro-paper',
+		href: 'https://twitter.com/albzrs',
 		linkTitle: `${SITE.title} on Twitter`,
-		active: false,
+		active: true,
 	},
 	{
 		name: 'Twitch',

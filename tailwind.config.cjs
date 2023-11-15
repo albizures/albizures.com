@@ -52,45 +52,11 @@ module.exports = {
 				100: oklch('--base-100'),
 				200: oklch('--base-200'),
 				300: oklch('--base-300'),
+				content: oklch('--base-content'),
 			},
 		},
 
 		extend: {
-			textColor: {
-				skin: {
-					base: withOpacity('--color-text-base'),
-					accent: withOpacity('--color-accent'),
-					inverted: withOpacity('--color-fill'),
-				},
-			},
-			backgroundColor: {
-				skin: {
-					fill: withOpacity('--color-fill'),
-					accent: withOpacity('--color-accent'),
-					inverted: withOpacity('--color-text-base'),
-					card: withOpacity('--color-card'),
-					'card-muted': withOpacity('--color-card-muted'),
-				},
-			},
-			outlineColor: {
-				skin: {
-					fill: withOpacity('--color-accent'),
-				},
-			},
-			borderColor: {
-				skin: {
-					line: withOpacity('--color-border'),
-					fill: withOpacity('--color-text-base'),
-					accent: withOpacity('--color-accent'),
-				},
-			},
-			fill: {
-				skin: {
-					base: withOpacity('--color-text-base'),
-					accent: withOpacity('--color-accent'),
-				},
-				transparent: 'transparent',
-			},
 			fontFamily: {
 				mono: ['IBM Plex Mono', 'monospace'],
 			},

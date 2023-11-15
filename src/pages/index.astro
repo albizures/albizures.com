@@ -46,15 +46,6 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 				I'm Jose - I'm a web developer from Guatemala 🇬🇹, I like to build useful
 				apps and play with code.
 			</p>
-			<p>
-				Read the blog posts or check
-				<LinkButton
-					className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-					href="https://github.com/satnaing/astro-paper#readme"
-				>
-					README
-				</LinkButton> for more info.
-			</p>
 			{
 				// only display if at least one social link is enabled
 				socialCount > 0 && (
@@ -132,7 +123,10 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 		@apply mb-6;
 	}
 	#hero .rss-icon {
-		@apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+		@apply fill-secondary mb-2 ml-2 h-8 w-8 scale-110 sm:mb-3 sm:scale-150;
+	}
+	#hero .rss-icon:hover {
+		@apply fill-secondary-accent;
 	}
 
 	.social-wrapper {
