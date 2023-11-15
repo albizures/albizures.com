@@ -1,0 +1,34 @@
+---
+import type { AsyncReturnType } from 'type-fest';
+import type { getCollection } from 'astro:content';
+import Card from '../Card';
+import Section from '../Section.astro';
+import slugify from '../../utils/slugify';
+
+export type Props = {
+	posts: AsyncReturnType<typeof getCollection>;
+};
+
+const { posts } = Astro.props;
+
+const featuredPosts = posts.filter(({ data }) => data.featured);
+---
+
+{
+	featuredPosts.length > 0 && (
+		<>
+			<Section title="Featured">
+				<ul>
+					{featuredPosts.map(({ data }) => (
+						<Card
+							href={`/posts/${slugify(data)}`}
+							frontmatter={data}
+							secHeading={false}
+						/>
+					))}
+				</ul>
+			</Section>
+			<slot />
+		</>
+	)
+}
