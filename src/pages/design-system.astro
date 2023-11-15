@@ -1,0 +1,51 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<Header />
+	<main id="main-content">
+		<section class="bg-base-100">base-100</section>
+		<section class="bg-base-200">base-200</section>
+		<section class="bg-base-300">base-300</section>
+
+		<section class="bg-primary">
+			<div class="grid grid-cols-3">
+				<span>primary</span>
+				<span class="text-primary-content">content over primary</span>
+			</div>
+		</section>
+		<section class="bg-primary-content">
+			<div class="grid grid-cols-3">
+				<span>primary-content</span>
+				<span class="text-primary">primary over content</span>
+				<span class="text-primary-accent">accent over content</span>
+			</div>
+		</section>
+		<section class="bg-primary-accent text-center">primary-accent</section>
+
+		<section class="bg-secondary">secondary</section>
+		<section class="bg-secondary-content">
+			<div class="grid grid-cols-3">
+				<span>secondary-content</span>
+				<span class="text-secondary">secondary over content</span>
+				<span class="text-secondary-accent">accent over content</span>
+			</div>
+		</section>
+		<section class="bg-secondary-accent">secondary-accent</section>
+		<section class="bg-base-300 flex justify-center gap-2">
+			<button class="btn btn-primary">click me!</button>
+			<button class="btn btn-secondary">click me!</button>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	section {
+		@apply mt-2 py-2 text-center;
+	}
+</style>
