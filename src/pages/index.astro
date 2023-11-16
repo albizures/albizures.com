@@ -10,7 +10,7 @@ import RecentPosts from '../components/posts/RecentPosts.astro';
 import { SOCIALS } from '../config';
 import { sortCollection } from '../utils/collections';
 
-const posts = await getCollection('blog');
+const posts = await getCollection('post');
 
 const sortedPosts = sortCollection(posts);
 
@@ -76,7 +76,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 		@apply mb-6;
 	}
 	#hero .rss-icon {
-		@apply fill-secondary mb-2 ml-2 h-8 w-8 scale-110 sm:mb-3 sm:scale-150;
+		@apply mb-2 ml-2 h-8 w-8 scale-110 fill-secondary sm:mb-3 sm:scale-150;
 	}
 	#hero .rss-icon:hover {
 		@apply fill-secondary-accent;

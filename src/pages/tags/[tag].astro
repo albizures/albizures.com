@@ -1,25 +1,26 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Main from '../../layouts/Main.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Card from '../../components/Card';
-import slugify from '../../utils/slugify';
 import { SITE } from '../../config';
+import type { PostEntry } from '../../content/config';
 import {
 	filderByTag,
 	sortCollection,
 	getUniqueTags,
+	slugify,
 } from '../../utils/collections';
 
 export type Props = {
-	post: CollectionEntry<'blog'>;
+	post: PostEntry;
 	tag: string;
 };
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = await getCollection('post');
 
 	const tags = getUniqueTags(posts);
 
@@ -33,7 +34,7 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.props;
 
-const posts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = await getCollection('post', ({ data }) => !data.draft);
 
 const tagPosts = filderByTag(posts, tag);
 

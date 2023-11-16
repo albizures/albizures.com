@@ -1,12 +1,11 @@
 ---
-import type { AsyncReturnType } from 'type-fest';
-import type { getCollection } from 'astro:content';
 import Card from '../Card';
 import Section from '../Section.astro';
-import slugify from '../../utils/slugify';
+import type { PostEntry } from '../../content/config';
+import { slugify } from '../../utils/collections';
 
 export type Props = {
-	posts: AsyncReturnType<typeof getCollection>;
+	posts: Array<PostEntry>;
 };
 
 const { posts } = Astro.props;

@@ -1,15 +1,19 @@
-import { slugifyStr } from '../utils/slugify';
+import { slugifyStr } from '../utils/collections';
 import Datetime from './Datetime';
-import type { CollectionEntry } from 'astro:content';
 
-export type Props = {
+export type CardProps = {
 	href?: string;
-	frontmatter: CollectionEntry<'blog'>['data'];
+	frontmatter: {
+		title: string;
+		description: string;
+		publicatedAt: Date;
+	};
 	secHeading?: boolean;
 };
 
-export default function Card({ href, frontmatter, secHeading = true }: Props) {
-	const { title, publicatedAt: pubDatetime, description } = frontmatter;
+export default function Card(props: CardProps) {
+	const { href, frontmatter, secHeading = true } = props;
+	const { title, publicatedAt, description } = frontmatter;
 
 	const headerProps = {
 		style: { viewTransitionName: slugifyStr(title) },
@@ -20,7 +24,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
 		<li className="my-6">
 			<a
 				href={href}
-				className="text-primary inline-block text-lg font-medium decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+				className="inline-block text-lg font-medium text-primary decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
 			>
 				{secHeading ? (
 					<h2 {...headerProps}>{title}</h2>
@@ -28,7 +32,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
 					<h3 {...headerProps}>{title}</h3>
 				)}
 			</a>
-			<Datetime datetime={pubDatetime} />
+			<Datetime datetime={publicatedAt} />
 			<p>{description}</p>
 		</li>
 	);

@@ -1,13 +1,13 @@
 import React from 'react';
 import Fuse from 'fuse.js';
 import Card from './Card';
-import slugify from '../utils/slugify';
-import type { CollectionEntry } from 'astro:content';
+import type { PostEntry } from '../content/config';
+import { slugify } from '../utils/collections';
 
 export type SearchItem = {
 	title: string;
 	description: string;
-	data: CollectionEntry<'blog'>['data'];
+	data: PostEntry['data'];
 };
 
 type Props = {
@@ -83,8 +83,8 @@ export default function SearchBar({ searchList }: Props) {
 					</svg>
 				</span>
 				<input
-					className="bg-base-100 border-primary-accent block w-full rounded 
-					border border-opacity-40 py-3 pl-10
+					className="block w-full rounded border border-primary-accent 
+					border-opacity-40 bg-base-100 py-3 pl-10
 					pr-3 placeholder:italic placeholder:text-opacity-75 
 					focus:border-opacity-100 focus:outline-none"
 					placeholder="Search for anything..."

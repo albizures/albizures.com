@@ -1,7 +1,7 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, type CollectionEntry } from 'astro:content';
 import { SITE } from '../config';
 
-const blog = defineCollection({
+const post = defineCollection({
 	type: 'content',
 	schema: ({ image }) =>
 		z.object({
@@ -28,8 +28,10 @@ const project = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
+			link: z.string(),
 			publicatedAt: z.date(),
-			shortDescription: z.string(),
+			featured: z.boolean().optional(),
+			description: z.string(),
 			slug: z.string().optional(),
 			ogImage: image()
 				.refine((img) => img.width >= 1200 && img.height >= 630, {
@@ -42,4 +44,7 @@ const project = defineCollection({
 		}),
 });
 
-export const collections = { blog, project };
+export type PostEntry = CollectionEntry<'post'>;
+export type ProjectEntry = CollectionEntry<'project'>;
+
+export const collections = { post, project };

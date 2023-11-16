@@ -6,13 +6,13 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Card from '../components/Card';
 import LinkButton from '../components/LinkButton.astro';
-import slugify from '../utils/slugify';
-import type { CollectionEntry } from 'astro:content';
+import type { PostEntry } from '../content/config';
+import { slugify } from '../utils/collections';
 
 export type Props = {
 	pageNum: number;
 	totalPages: number;
-	posts: Array<CollectionEntry<'blog'>>;
+	posts: Array<PostEntry>;
 };
 
 const { pageNum, totalPages, posts } = Astro.props;
@@ -69,7 +69,7 @@ const next = pageNum < totalPages ? '' : 'disabled';
 		@apply mb-8 mt-auto flex justify-center;
 	}
 	.disabled {
-		@apply hover:text-base-content group-hover:fill-base-content pointer-events-none select-none opacity-50;
+		@apply pointer-events-none select-none opacity-50 hover:text-base-content group-hover:fill-base-content;
 	}
 	.disabled-svg {
 		@apply group-hover:!fill-base-content;
