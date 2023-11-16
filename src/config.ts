@@ -1,24 +1,16 @@
 import type { SocialMetaData } from './socialMedia';
 
-export type Site = {
-	website: string;
-	author: string;
-	desc: string;
-	title: string;
-	ogImage?: string;
-	lightAndDarkMode: boolean;
-	postPerPage: number;
-};
-
-export const SITE: Site = {
+export const SITE = {
 	website: 'https://astro-paper.pages.dev/', // replace this with your deployed domain
 	author: 'Sat Naing',
 	desc: 'A minimal, responsive and SEO-friendly Astro blog theme.',
 	title: 'Jose Albizures',
 	ogImage: 'astropaper-og.jpg',
 	lightAndDarkMode: true,
-	postPerPage: 3,
-};
+	postPerPage: 6,
+} as const;
+
+export type Site = typeof SITE;
 
 export const LOCALE = ['en-EN'] as const; // set to [] to use the environment default
 

@@ -13,8 +13,15 @@ export type Props = {
 
 const { post } = Astro.props;
 
-const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
-	post.data;
+const {
+	title,
+	author,
+	description,
+	ogImage,
+	canonicalURL,
+	publicatedAt: pubDatetime,
+	tags,
+} = post.data;
 
 const { Content } = await post.render();
 

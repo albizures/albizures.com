@@ -5,11 +5,13 @@ import Main from '../../layouts/Main.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Card from '../../components/Card';
-import getUniqueTags from '../../utils/getUniqueTags';
-import getPostsByTag from '../../utils/getPostsByTag';
 import slugify from '../../utils/slugify';
 import { SITE } from '../../config';
-import getSortedPosts from '../../utils/getSortedPosts';
+import {
+	filderByTag,
+	sortCollection,
+	getUniqueTags,
+} from '../../utils/collections';
 
 export type Props = {
 	post: CollectionEntry<'blog'>;
@@ -33,9 +35,9 @@ const { tag } = Astro.props;
 
 const posts = await getCollection('blog', ({ data }) => !data.draft);
 
-const tagPosts = getPostsByTag(posts, tag);
+const tagPosts = filderByTag(posts, tag);
 
-const sortTagsPost = getSortedPosts(tagPosts);
+const sortTagsPost = sortCollection(tagPosts);
 ---
 
 <Layout title={`Tag:${tag} | ${SITE.title}`}>

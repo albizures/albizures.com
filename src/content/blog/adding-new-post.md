@@ -1,10 +1,10 @@
 ---
 author: Sat Naing
-pubDatetime: 2022-09-23T15:22:00Z
+publicatedAt: 2022-09-23T15:22:00Z
 title: Adding new posts in AstroPaper theme
-postSlug: adding-new-posts-in-astropaper-theme
-featured: true
-draft: false
+slug: adding-new-posts-in-astropaper-theme
+featured: false
+draft: true
 tags:
   - docs
 description:
@@ -48,7 +48,7 @@ If you omit `tags` in a blog post (in other words, if no tag is specified), the 
 export const blogSchema = z.object({
 	// ---
 	draft: z.boolean().optional(),
-	tags: z.array(z.string()).default(["others"]), // replace "others" with whatever you want
+	tags: z.array(z.string()).default(['others']), // replace "others" with whatever you want
 	// ---
 });
 ```
@@ -70,7 +70,7 @@ tags:
   - some
   - example
   - tags
-ogImage: ""
+ogImage: ''
 description: This is the example description of the example post.
 canonicalURL: https://example.org/my-article-was-already-posted-here
 ---

@@ -9,11 +9,15 @@ module.exports = {
 		'plugin:astro/recommended',
 		'plugin:import/errors',
 	],
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
+		ecmaFeatures: {
+			jsx: true,
+		},
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['import'],
+	plugins: ['import', '@typescript-eslint'],
 	overrides: [
 		{
 			files: ['*.astro'],
@@ -23,19 +27,6 @@ module.exports = {
 				extraFileExtensions: ['.astro'],
 			},
 		},
-		{
-			files: ['*.ts', '*.tsx'],
-			parser: '@typescript-eslint/parser',
-			plugins: ['@typescript-eslint'],
-			rules: {
-				'@typescript-eslint/array-type': [
-					'error',
-					{ default: 'generic', readonly: 'generic' },
-				],
-				'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-				'@typescript-eslint/indent': 'off',
-			},
-		},
 	],
 
 	rules: {
@@ -43,5 +34,11 @@ module.exports = {
 		curly: ['error', 'all'],
 		indent: 'off',
 		'import/no-unresolved': 'off',
+		'@typescript-eslint/array-type': [
+			'error',
+			{ default: 'generic', readonly: 'generic' },
+		],
+		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+		'@typescript-eslint/indent': 'off',
 	},
 };
