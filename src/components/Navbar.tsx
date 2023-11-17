@@ -4,7 +4,7 @@ import { SITE } from '../config';
 import { Icons } from './Icons';
 
 type NavbarProps = {
-	activePage?: 'posts' | 'tags' | 'about' | 'search' | 'projects';
+	activePage?: 'posts' | 'tags' | 'search' | 'projects';
 };
 
 export function Navbar(props: NavbarProps) {
@@ -24,19 +24,13 @@ export function Navbar(props: NavbarProps) {
 				<Icons.Close className="menu-close h-6 w-6" />
 			</button>
 			<NavbarList>
-				<NavbarItem>
+				{/* <NavbarItem>
 					<LinkButton
 						href="/posts"
 						title="Posts"
 						isActive={activePage === 'posts'}
 					/>
 				</NavbarItem>
-				<NavbarItem>
-					<LinkButton
-						href="/about"
-						title="About"
-						isActive={activePage === 'about'}
-					/>
 				</NavbarItem>
 				<NavbarItem className="col-span-1">
 					<LinkButton
@@ -47,7 +41,7 @@ export function Navbar(props: NavbarProps) {
 					>
 						<Icons.Search className="inline-block h-7 w-7" />
 					</LinkButton>
-				</NavbarItem>
+				</NavbarItem> */}
 				<NavbarItem className="col-span-1">
 					{SITE.lightAndDarkMode && (
 						<button
