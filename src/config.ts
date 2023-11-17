@@ -11,7 +11,7 @@ export type Site = {
 };
 
 export const SITE: Site = {
-	website: 'https://albizures.netlify.app',
+	website: 'https://albizures.com',
 	author: 'Jose Albizures',
 	description:
 		"I'm Jose - I'm a web developer from Guatemala 🇬🇹, I like to build useful (and useless too 😜) apps and play with code.",
