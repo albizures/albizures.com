@@ -50,8 +50,8 @@
 		display: block;
 	}
 	body {
-		@apply bg-base-300 text-base-content flex min-h-[100svh] flex-col font-mono;
-		@apply selection:bg-secondary-accent selection:text-secondary-content selection:bg-opacity-60;
+		@apply flex min-h-[100svh] flex-col bg-base-300 font-mono text-base-content;
+		@apply selection:bg-secondary-accent selection:bg-opacity-60 selection:text-secondary-content;
 	}
 	section,
 	footer {
@@ -59,12 +59,12 @@
 	}
 
 	a {
-		@apply outline-primary-accent outline-2 outline-offset-1;
+		@apply outline-2 outline-offset-1 outline-primary-accent;
 		@apply focus-visible:no-underline focus-visible:outline-dashed;
 	}
 
-	svg {
-		@apply fill-primary group-hover:fill-primary-accent inline-block h-6 w-6;
+	svg.icon-base {
+		@apply inline-block h-6 w-6 fill-primary group-hover:fill-primary-accent;
 	}
 	svg.icon-tabler {
 		@apply inline-block h-6 w-6 scale-125 fill-transparent 
@@ -74,50 +74,50 @@
 
 	.prose {
 		/* headings */
-		@apply prose-headings:!text-base-content
-		prose-headings:!mb-3 
+		@apply prose-headings:!mb-3
+		prose-headings:!text-base-content 
     prose-h3:italic;
 
 		/* links */
-		@apply prose-a:!text-base-content
-		hover:prose-a:text-primary
+		@apply prose-a:!font-semibold
+		prose-a:!text-base-content
 		prose-a:!decoration-primary-accent 
-		prose-a:!font-semibold
 		prose-a:!decoration-dashed
-		prose-a:underline-offset-8;
+		prose-a:underline-offset-8
+		hover:prose-a:text-primary;
 
 		/* list */
-		@apply prose-ol:!text-base-content prose-li:marker:!text-primary
+		@apply prose-ol:!text-base-content prose-ul:overflow-x-clip
 		prose-ul:!text-base-content
-		prose-ul:overflow-x-clip
+		prose-li:marker:!text-primary
 		prose-th:border;
 
 		/* img */
-		@apply prose-img:border-primary-accent prose-img:!mt-2 
-    prose-img:border-2;
+		@apply prose-img:!mt-2 prose-img:border-2 
+    prose-img:border-primary-accent;
 
 		/* code */
-		@apply prose-code:!text-base-content 
-		prose-code:bg-secondary-content prose-code:border-secondary-accent
-		prose-code:rounded prose-code:border prose-code:border-opacity-50 prose-code:bg-opacity-100 
-    prose-code:p-1 prose-code:before:!content-[''] prose-code:after:!content-[''];
+		@apply prose-code:rounded 
+		prose-code:border prose-code:border-secondary-accent
+		prose-code:border-opacity-50 prose-code:bg-secondary-content prose-code:bg-opacity-100 prose-code:p-1 
+    prose-code:!text-base-content prose-code:before:!content-[''] prose-code:after:!content-[''];
 
 		/* table */
 		@apply prose-table:text-base-content
-		prose-th:border-primary-accent prose-td:border-primary-accent 
-    prose-td:border prose-img:mx-auto;
+		prose-th:border-primary-accent prose-td:border 
+    prose-td:border-primary-accent prose-img:mx-auto;
 
 		/* others */
-		@apply prose-figcaption:!text-base-content prose-strong:!text-base-content 
-    prose-pre:!text-base-content 
-		prose-p:!text-base-content
-    prose-blockquote:!border-l-primary 
-    prose-hr:!border-primary 
-    prose-blockquote:border-opacity-50 prose-blockquote:opacity-80 
-    prose-figcaption:opacity-70;
+		@apply prose-p:!text-base-content prose-blockquote:!border-l-primary 
+    prose-blockquote:border-opacity-50 
+		prose-blockquote:opacity-80
+    prose-figcaption:!text-base-content 
+    prose-figcaption:opacity-70 
+    prose-strong:!text-base-content prose-pre:!text-base-content 
+    prose-hr:!border-primary;
 	}
 	.prose a {
-		@apply hover:!text-primary break-words;
+		@apply break-words hover:!text-primary;
 	}
 	.prose thead th:first-child,
 	tbody td:first-child,
@@ -128,7 +128,7 @@
 		@apply mb-2;
 	}
 	.prose details {
-		@apply text-base-content inline-block cursor-pointer select-none;
+		@apply inline-block cursor-pointer select-none text-base-content;
 	}
 	.prose summary {
 		@apply focus-outline;
@@ -142,26 +142,6 @@
 		overflow-y: scroll;
 	}
 
-	/* width */
-	/* ::-webkit-scrollbar {
-		@apply h-3 w-3;
-	} */
-
-	/* Track */
-	/* ::-webkit-scrollbar-track {
-		@apply bg-base-100;
-	} */
-
-	/* Handle */
-	/* ::-webkit-scrollbar-thumb {
-		@apply bg-primary-content;
-	} */
-
-	/* Handle on hover */
-	/* ::-webkit-scrollbar-thumb:hover {
-		@apply bg-primary-accent;
-	} */
-
 	code,
 	blockquote {
 		word-wrap: break-word;
@@ -173,11 +153,8 @@
 }
 
 @layer components {
-	.display-none {
-		@apply hidden;
-	}
 	.focus-outline {
-		@apply outline-primary-accent outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;
+		@apply outline-2 outline-offset-1 outline-primary-accent focus-visible:no-underline focus-visible:outline-dashed;
 	}
 
 	.btn {
@@ -196,5 +173,29 @@
 	}
 	.btn-secondary:hover {
 		@apply bg-secondary-accent;
+	}
+
+	.entry-list {
+	}
+
+	.entry-list .item {
+		@apply my-6;
+	}
+
+	.entry-list .item .title {
+		@apply inline-block text-lg font-medium text-primary decoration-dashed underline-offset-4;
+	}
+	.entry-list .item a.title {
+		@apply hover:underline focus-visible:no-underline focus-visible:underline-offset-0;
+	}
+
+	.hamburger-menu.active .menu-open {
+		@apply hidden;
+	}
+	.hamburger-menu.active .menu-close {
+		@apply inline-block;
+	}
+	.hamburger-menu .menu-close {
+		@apply hidden;
 	}
 }

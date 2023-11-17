@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import Hr from '../components/Hr.astro';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
@@ -7,10 +6,13 @@ import Footer from '../components/Footer.astro';
 import Socials from '../components/Socials.astro';
 import FeaturedPosts from '../components/posts/FeaturedPosts.astro';
 import RecentPosts from '../components/posts/RecentPosts.astro';
+import RecentProjects from '../components/projects/RecentProjects.astro';
 import { SOCIALS } from '../config';
 import { sortCollection } from '../utils/collections';
+import { getPosts, getProjects } from '../content/config';
 
-const posts = await getCollection('post');
+const posts = await getPosts();
+const projects = sortCollection(await getProjects());
 
 const sortedPosts = sortCollection(posts);
 
@@ -31,7 +33,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 				aria-label="rss feed"
 				title="RSS Feed"
 			>
-				<svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
+				<svg xmlns="http://www.w3.org/2000/svg" class="rss-icon icon-base"
 					><path
 						d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
 					></path><path
@@ -56,6 +58,10 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 		</section>
 
 		<Hr />
+
+		<RecentProjects projects={projects}>
+			<Hr />
+		</RecentProjects>
 
 		<FeaturedPosts posts={sortedPosts}>
 			<Hr />

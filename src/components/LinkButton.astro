@@ -13,16 +13,10 @@ const { href, className, ariaLabel, title, disabled = false } = Astro.props;
 <a
 	href={disabled ? '#' : href}
 	tabindex={disabled ? '-1' : '0'}
-	class={`group inline-block ${className}`}
+	class={`group inline-block ${className} hover:text-primary-accent`}
 	aria-label={ariaLabel}
 	title={title}
 	aria-disabled={disabled}
 >
 	<slot />
 </a>
-
-<style>
-	a {
-		@apply hover:text-primary-accent;
-	}
-</style>

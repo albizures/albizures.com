@@ -17,12 +17,18 @@ dependencies:
   astro:
     specifier: ^3.5.4
     version: 3.5.4(@types/node@18.18.9)(typescript@5.2.2)
+  clsx:
+    specifier: ^2.0.0
+    version: 2.0.0
   fuse.js:
     specifier: ^7.0.0
     version: 7.0.0
   github-slugger:
     specifier: ^2.0.0
     version: 2.0.0
+  react-icons:
+    specifier: ^4.12.0
+    version: 4.12.0(react@18.2.0)
   remark-collapse:
     specifier: ^0.1.2
     version: 0.1.2
@@ -4533,7 +4539,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: true
 
   /lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
@@ -5706,6 +5711,14 @@ packages:
       scheduler: 0.23.0
     dev: true
 
+  /react-icons@4.12.0(react@18.2.0):
+    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
@@ -5716,7 +5729,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}

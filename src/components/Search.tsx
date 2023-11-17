@@ -1,8 +1,8 @@
 import React from 'react';
 import Fuse from 'fuse.js';
-import Card from './Card';
 import type { PostEntry } from '../content/config';
 import { slugify } from '../utils/collections';
+import { EntryList, PostItem } from './EntryList';
 
 export type SearchItem = {
 	title: string;
@@ -108,16 +108,16 @@ export default function SearchBar({ searchList }: Props) {
 				</div>
 			)}
 
-			<ul>
+			<EntryList>
 				{searchResults &&
 					searchResults.map(({ item, refIndex }) => (
-						<Card
+						<PostItem
 							href={`/posts/${slugify(item.data)}`}
 							frontmatter={item.data}
 							key={`${refIndex}-${slugify(item.data)}`}
 						/>
 					))}
-			</ul>
+			</EntryList>
 		</>
 	);
 }

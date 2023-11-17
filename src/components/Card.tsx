@@ -11,7 +11,7 @@ export type CardProps = {
 	secHeading?: boolean;
 };
 
-export default function Card(props: CardProps) {
+export function Card(props: CardProps) {
 	const { href, frontmatter, secHeading = true } = props;
 	const { title, publicatedAt, description } = frontmatter;
 
@@ -21,11 +21,8 @@ export default function Card(props: CardProps) {
 	};
 
 	return (
-		<li className="my-6">
-			<a
-				href={href}
-				className="inline-block text-lg font-medium text-primary decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-			>
+		<li className="item">
+			<a href={href} className="title">
 				{secHeading ? (
 					<h2 {...headerProps}>{title}</h2>
 				) : (

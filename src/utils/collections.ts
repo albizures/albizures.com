@@ -46,7 +46,7 @@ export function slugifyStr(str: string) {
 	return slugger(str);
 }
 
-export function slugify(post: WithTitle & WithSlug) {
+export function slugify(post: WithSlug & WithTitle) {
 	return post.slug ? slugger(post.slug) : slugger(post.title);
 }
 

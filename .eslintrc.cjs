@@ -30,6 +30,7 @@ module.exports = {
 	],
 
 	rules: {
+		'no-unused-vars': 'off',
 		'arrow-parens': ['error', 'always'],
 		curly: ['error', 'all'],
 		indent: 'off',

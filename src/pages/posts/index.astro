@@ -2,11 +2,10 @@
 import { SITE } from '../../config';
 import Posts from '../../layouts/Posts.astro';
 import getPageNumbers from '../../utils/getPageNumbers';
-
-import { getCollection } from 'astro:content';
 import { sortCollection } from '../../utils/collections';
+import { getPosts } from '../../content/config';
 
-const posts = await getCollection('post');
+const posts = await getPosts();
 
 const sortedPosts = sortCollection(posts);
 

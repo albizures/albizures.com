@@ -4,9 +4,9 @@ import Layout from './Layout.astro';
 import Main from './Main.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Card from '../components/Card';
 import LinkButton from '../components/LinkButton.astro';
 import type { PostEntry } from '../content/config';
+import { PostItem, EntryList } from '../components/EntryList';
 import { slugify } from '../utils/collections';
 
 export type Props = {
@@ -24,13 +24,13 @@ const next = pageNum < totalPages ? '' : 'disabled';
 <Layout title={`Posts | ${SITE.title}`}>
 	<Header activeNav="posts" />
 	<Main pageTitle="Posts" pageDesc="All the articles I've posted.">
-		<ul>
+		<EntryList>
 			{
 				posts.map(({ data }) => (
-					<Card href={`/posts/${slugify(data)}`} frontmatter={data} />
+					<PostItem href={`/posts/${slugify(data)}`} frontmatter={data} />
 				))
 			}
-		</ul>
+		</EntryList>
 	</Main>
 
 	{

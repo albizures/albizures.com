@@ -3,12 +3,13 @@ import { formatDate, formatTime } from '../utils/dates';
 
 export type Props = {
 	datetime: string | Date;
+	withTime?: boolean;
 	size?: 'sm' | 'lg';
 	className?: string;
 };
 
 export default function Datetime(props: Props) {
-	const { datetime, size = 'sm', className } = props;
+	const { datetime, size = 'sm', className, withTime = false } = props;
 	const date = new Date(datetime);
 	return (
 		<div className={`flex items-center space-x-2 opacity-80 ${className}`}>
@@ -16,7 +17,7 @@ export default function Datetime(props: Props) {
 				xmlns="http://www.w3.org/2000/svg"
 				className={`${
 					size === 'sm' ? 'scale-90' : 'scale-100'
-				} fill-primary inline-block h-6 w-6`}
+				} inline-block h-6 w-6 fill-primary`}
 				aria-hidden="true"
 			>
 				<path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
@@ -25,9 +26,13 @@ export default function Datetime(props: Props) {
 			<span className="sr-only">Posted on:</span>
 			<span className={`italic ${size === 'sm' ? 'text-sm' : 'text-base'}`}>
 				{formatDate(date, LOCALE[0])}
-				<span aria-hidden="true"> | </span>
-				<span className="sr-only">&nbsp;at&nbsp;</span>
-				{formatTime(date, LOCALE[0])}
+				{withTime && (
+					<>
+						<span aria-hidden="true"> | </span>
+						<span className="sr-only">&nbsp;at&nbsp;</span>
+						{formatTime(date, LOCALE[0])}
+					</>
+				)}
 			</span>
 		</div>
 	);

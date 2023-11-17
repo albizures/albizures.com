@@ -1,9 +1,9 @@
 ---
-import Card from '../Card';
 import Section from '../Section.astro';
 import LinkButton from '../LinkButton.astro';
 import type { ProjectEntry } from '../../content/config';
 import { slugify } from '../../utils/collections';
+import { EntryList, ProjectItem } from '../EntryList';
 
 export type Props = {
 	projects: Array<ProjectEntry>;
@@ -15,30 +15,35 @@ const { projects, amount = 4 } = Astro.props;
 
 {
 	projects.length > 0 && (
-		<Section title="Recent Posts">
-			<ul>
-				{projects.map(({ data }, index) => {
-					if (data.featured || index > amount) {
-						return;
-					}
+		<>
+			<Section title="Recent Projects">
+				<EntryList>
+					{projects.map(({ data }, index) => {
+						if (data.featured || index > amount) {
+							return;
+						}
 
-					return (
-						<Card
-							href={`/posts/${slugify(data)}`}
-							frontmatter={data}
-							secHeading={false}
-						/>
-					);
-				})}
-			</ul>
-			<div class="my-8 text-center">
-				<LinkButton href="/posts">
-					All Posts
-					<svg xmlns="http://www.w3.org/2000/svg">
-						<path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
-					</svg>
-				</LinkButton>
-			</div>
-		</Section>
+						return (
+							<ProjectItem
+								href={`/projects/${slugify(data)}`}
+								frontmatter={data}
+								secHeading={false}
+							/>
+						);
+					})}
+				</EntryList>
+				{projects.length > amount && (
+					<div class="my-8 text-center">
+						<LinkButton href="/projects">
+							All Projects
+							<svg class="icon-base" xmlns="http://www.w3.org/2000/svg">
+								<path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+							</svg>
+						</LinkButton>
+					</div>
+				)}
+			</Section>
+			<slot />
+		</>
 	)
 }
