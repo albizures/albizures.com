@@ -40,6 +40,10 @@ const options: SatoriOptions = {
 			style: 'normal',
 		},
 	],
+	graphemeImages: {
+		'🇬🇹': 'https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f1ec-1f1f9.svg',
+		'😜': 'https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f61c.svg',
+	},
 };
 
 function svgBufferToPngBuffer(svg: string) {
