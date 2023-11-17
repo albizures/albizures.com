@@ -46,8 +46,31 @@ const options: SatoriOptions = {
 	},
 };
 
-function svgBufferToPngBuffer(svg: string) {
+async function svgBufferToPngBuffer(svg: string) {
 	const resvg = new Resvg(svg);
+
+	const resolved = await Promise.all(
+		resvg.imagesToResolve().map(async (url) => {
+			console.info('image url', url);
+			const img = await fetch(url);
+			const code = await img.text();
+			return {
+				url,
+				code,
+			};
+		}),
+	);
+
+	if (resolved.length > 0) {
+		for (const result of resolved) {
+			const { url, code } = result;
+			// resvg doesn't support resolve svg images
+			// so convert them with resvg is a workaround
+			const png = await svgBufferToPngBuffer(code);
+			resvg.resolveImage(url, png);
+		}
+	}
+
 	const pngData = resvg.render();
 	return pngData.asPng();
 }
