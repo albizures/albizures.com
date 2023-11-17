@@ -56,8 +56,6 @@ export function ProjectItem(props: ProjectItemProps) {
 					{externalLink}
 				</h3>
 			)}
-
-			<a href={href} className="title"></a>
 			<Datetime datetime={publicatedAt} />
 			<p>{description}</p>
 		</li>
