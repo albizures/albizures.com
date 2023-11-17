@@ -38,6 +38,7 @@ export function ProjectItem(props: ProjectItemProps) {
 			className="ml-1 inline-block h-5 w-5 align-text-bottom hover:text-primary-accent"
 			href={link}
 		>
+			<span className="sr-only">{title} homepage</span>
 			<Icons.ExternalLink />
 		</a>
 	);

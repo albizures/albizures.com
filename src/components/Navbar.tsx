@@ -16,10 +16,11 @@ export function Navbar(props: NavbarProps) {
 		>
 			<button
 				className="hamburger-menu self-end p-2 sm:hidden"
-				aria-label="Open Menu"
+				aria-label="Toogle Menu"
 				aria-expanded="false"
 				aria-controls="menu-items"
 			>
+				<span className="sr-only">Toogle Menu</span>
 				<Icons.Menu className="menu-open h-6 w-6" />
 				<Icons.Close className="menu-close h-6 w-6" />
 			</button>
