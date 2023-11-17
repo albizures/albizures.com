@@ -11,7 +11,7 @@ export type Site = {
 };
 
 export const SITE: Site = {
-	website: 'https://astro-paper.pages.dev/', // replace this with your deployed domain
+	website: 'https://albizures.netlify.app',
 	author: 'Jose Albizures',
 	description:
 		"I'm Jose - I'm a web developer from Guatemala 🇬🇹, I like to build useful (and useless too 😜) apps and play with code.",

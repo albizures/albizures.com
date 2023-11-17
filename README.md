@@ -35,7 +35,6 @@ My portfolio & blog website and other goodies
 │   │   └── logo.svg
 │   │   └── logo.png
 │   └── favicon.svg
-│   └── astropaper-og.jpg
 │   └── robots.txt
 │   └── toggle-theme.js
 ├── src/
