@@ -32,8 +32,6 @@ My portfolio & blog website and other goodies
 /
 ├── public/
 │   ├── assets/
-│   │   └── logo.svg
-│   │   └── logo.png
 │   └── favicon.svg
 │   └── robots.txt
 │   └── toggle-theme.js
