@@ -6,7 +6,7 @@ import {
 } from 'astro:content';
 import { SITE } from '../config';
 
-const post = defineCollection({
+const posts = defineCollection({
 	type: 'content',
 	schema: ({ image }) =>
 		z.object({
@@ -27,7 +27,7 @@ const post = defineCollection({
 		}),
 });
 
-const project = defineCollection({
+const projects = defineCollection({
 	type: 'content',
 	schema: ({ image }) =>
 		z.object({
@@ -47,16 +47,16 @@ const project = defineCollection({
 		}),
 });
 
-export type PostEntry = CollectionEntry<'post'>;
-export type ProjectEntry = CollectionEntry<'project'>;
+export type PostEntry = CollectionEntry<'posts'>;
+export type ProjectEntry = CollectionEntry<'projects'>;
 export type EntryFilter<TEntry> = (entry: TEntry) => boolean;
 
 export function getPosts(filter?: EntryFilter<PostEntry>) {
-	return getCollection('post', filter);
+	return getCollection('posts', filter);
 }
 
 export function getProjects(filter?: EntryFilter<ProjectEntry>) {
-	return getCollection('project', filter);
+	return getCollection('projects', filter);
 }
 
-export const collections = { post, project };
+export const collections = { posts: posts, projects };
