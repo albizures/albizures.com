@@ -5,35 +5,31 @@
 @layer base {
 	:root,
 	html[data-theme='light'] {
-		/* oklch(63.23% 0.083 231.09) */
+		/* oklch(57.35% 0.146 299.58) */
+		--primary: 56.23% 0.147 299.58;
+		--primary-content: 95% 0.0383 299.58;
+		--primary-accent: 72% 0.113 299.58;
 
-		--primary: 56.23% 0.147 231.09;
-		--primary-content: 95% 0.0383 231.09;
-		--primary-accent: 72% 0.113 231.09;
+		/* oklch(84.78% 0.067 347.62) */
+		--secondary: 56.23% 0.147 347.62;
+		--secondary-content: 95% 0.0383 347.62;
+		--secondary-accent: 72% 0.113 347.62;
 
-		/* oklch(88.73% 0.083 78.81) */
-
-		--secondary: 56.23% 0.147 78.81;
-		--secondary-content: 95% 0.0383 78.81;
-		--secondary-accent: 72% 0.113 78.81;
-
-		--base-300: 98% 0 0;
-		--base-200: 90% 0 0;
-		--base-100: 80% 0 0;
-		--base-content: 10% 0 0;
+		--base-300: 98% 0.001 328.86;
+		--base-200: 90% 0.001 328.86;
+		--base-100: 80% 0.001 328.86;
+		--base-content: 10% 0.001 328.86;
 	}
 	html[data-theme='dark'] {
-		/* oklch(69.86% 0.17 52.39) */
+		/* oklch(57.35% 0.146 299.58) */
+		--secondary: 56.23% 0.147 299.58;
+		--secondary-content: 95% 0.0383 299.58;
+		--secondary-accent: 72% 0.113 299.58;
 
-		--primary: 69.86% 0.17 52.39;
-		--primary-content: 25% 0.0383 52.39;
-		--primary-accent: 62% 0.143 52.39;
-
-		/* oklch(69.12% 0.042 288.4) */
-
-		--secondary: 69.86% 0.097 288.4;
-		--secondary-content: 25% 0.0383 288.4;
-		--secondary-accent: 62% 0.143 288.4;
+		/* oklch(84.78% 0.067 347.62) */
+		--primary: 56.23% 0.147 347.62;
+		--primary-content: 95% 0.0383 347.62;
+		--primary-accent: 72% 0.113 347.62;
 
 		/* oklch(31.88% 0.025 328.86) */
 		--base-300: 14% 0.015 328.86;
