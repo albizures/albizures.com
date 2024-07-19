@@ -1,15 +1,15 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import { SITE } from '../config';
-import '../styles/base.css';
+import { ViewTransitions } from 'astro:transitions'
+import { SITE } from '../config'
+import '../styles/base.css'
 
 export type Props = {
-	title?: string;
-	author?: string;
-	description?: string;
-	ogImage?: string;
-	canonicalURL?: string;
-};
+	title?: string
+	author?: string
+	description?: string
+	ogImage?: string
+	canonicalURL?: string
+}
 
 const {
 	title = SITE.title,
@@ -17,7 +17,7 @@ const {
 	description = SITE.description,
 	ogImage = SITE.ogImage,
 	canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-} = Astro.props;
+} = Astro.props
 
 const socialImageURL = new URL(
 	ogImage ?? SITE.ogImage ?? 'og.png',
@@ -73,7 +73,8 @@ const socialImageURL = new URL(
 		<script
 			data-goatcounter="https://albizures.goatcounter.com/count"
 			async
-			src="//gc.zgo.at/count.js"></script>
+			src="//gc.zgo.at/count.js"
+		></script>
 		<script is:inline src="/toggle-theme.js"></script>
 	</head>
 	<body>

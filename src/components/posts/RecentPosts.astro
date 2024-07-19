@@ -1,14 +1,14 @@
 ---
-import { Card } from '../Card';
-import Section from '../Section.astro';
-import LinkButton from '../LinkButton.astro';
-import type { PostEntry } from '../../content/config';
-import { slugify } from '../../utils/collections';
+import { Card } from '../Card'
+import Section from '../Section.astro'
+import LinkButton from '../LinkButton.astro'
+import type { PostEntry } from '../../content/config'
+import { slugify } from '../../utils/collections'
 
 export type Props = {
-	posts: Array<PostEntry>;
-	amount?: number;
-};
+	posts: Array<PostEntry>
+	amount?: number
+}
 
 const { posts, amount = 4 } = Astro.props;
 ---
@@ -19,7 +19,7 @@ const { posts, amount = 4 } = Astro.props;
 			<ul>
 				{posts.map(({ data }, index) => {
 					if (data.featured || index > amount) {
-						return;
+						return <></>
 					}
 
 					return (
@@ -28,7 +28,7 @@ const { posts, amount = 4 } = Astro.props;
 							frontmatter={data}
 							secHeading={false}
 						/>
-					);
+					)
 				})}
 			</ul>
 			<div class="my-8 text-center">

@@ -1,34 +1,32 @@
 ---
-import getPageNumbers from '../../../utils/getPageNumbers';
-import { SITE } from '../../../config';
-import { slugify, sortCollection } from '../../../utils/collections';
-import { getProjects, type ProjectEntry } from '../../../content/config';
-import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header.astro';
-import Section from '../../../components/Section.astro';
-import { ExternalLink } from '../../../components/ExternalLink';
+import getPageNumbers from '../../../utils/getPageNumbers'
+import { slugify } from '../../../utils/collections'
+import { type ProjectEntry, getProjects } from '../../../content/config'
+import Layout from '../../../layouts/Layout.astro'
+import Header from '../../../components/Header.astro'
+import Section from '../../../components/Section.astro'
+import { ExternalLink } from '../../../components/ExternalLink'
 
 export type Props = {
-	project: ProjectEntry;
-};
+	project: ProjectEntry
+}
 
 export async function getStaticPaths() {
-	const items = await getProjects(({ data }) => !data.draft);
+	const items = await getProjects(({ data }) => !data.draft)
 
 	const result = items.map((project) => ({
 		params: { slug: slugify(project.data) },
 		props: { project },
-	}));
+	}))
 
 	const pagePaths = getPageNumbers(items.length).map((pageNum) => ({
 		params: { slug: String(pageNum) },
-	}));
+	}))
 
-	return [...result, ...pagePaths];
+	return [...result, ...pagePaths]
 }
 
-const { slug } = Astro.params;
-const { project } = Astro.props;
+const { project } = Astro.props
 const { Content } = await project.render();
 ---
 

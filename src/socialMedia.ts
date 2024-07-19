@@ -10,11 +10,11 @@ export type SocialMedia =
 	| 'Twitch'
 	| 'TikTok'
 	// | 'Mastodon'
-	| 'Steam';
+	| 'Steam'
 
 export type SocialMetaData = {
-	name: SocialMedia;
-	href: string;
-	active: boolean;
-	linkTitle: string;
-};
+	name: SocialMedia
+	href: string
+	active: boolean
+	linkTitle: string
+}

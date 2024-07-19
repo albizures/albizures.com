@@ -1,14 +1,14 @@
-import clsx from 'clsx';
-import { Icons } from './Icons';
+import clsx from 'clsx'
+import { Icons } from './Icons'
 
 type ExternalLinkProps = {
-	link: string;
-	title: string;
-	className?: string;
-};
+	link: string
+	title: string
+	className?: string
+}
 
 export function ExternalLink(props: ExternalLinkProps) {
-	const { link, title, className } = props;
+	const { link, title, className } = props
 
 	return (
 		<a
@@ -19,5 +19,5 @@ export function ExternalLink(props: ExternalLinkProps) {
 			<span className="sr-only">{title}</span>
 			<Icons.ExternalLink />
 		</a>
-	);
+	)
 }

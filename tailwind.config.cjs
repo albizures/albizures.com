@@ -1,12 +1,3 @@
-// @ts-check
-function withOpacity(variableName) {
-	return ({ opacityValue }) => {
-		if (opacityValue !== undefined) {
-			return `rgba(var(${variableName}), ${opacityValue})`;
-		}
-		return `rgb(var(${variableName}))`;
-	};
-}
 /**
  *
  * @param {`--${string}`} variableName
@@ -15,10 +6,10 @@ function withOpacity(variableName) {
 function oklch(variableName) {
 	return ({ opacityValue }) => {
 		if (opacityValue !== undefined) {
-			return `oklch(var(${variableName}) / ${opacityValue})`;
+			return `oklch(var(${variableName}) / ${opacityValue})`
 		}
-		return `oklch(var(${variableName}))`;
-	};
+		return `oklch(var(${variableName}))`
+	}
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -63,4 +54,4 @@ module.exports = {
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],
-};
+}

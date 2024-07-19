@@ -1,23 +1,23 @@
 ---
-import { SITE } from '../config';
-import Layout from './Layout.astro';
-import Main from './Main.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import LinkButton from '../components/LinkButton.astro';
-import type { PostEntry } from '../content/config';
-import { PostItem, EntryList } from '../components/EntryList';
-import { slugify } from '../utils/collections';
+import { SITE } from '../config'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import LinkButton from '../components/LinkButton.astro'
+import type { PostEntry } from '../content/config'
+import { EntryList, PostItem } from '../components/EntryList'
+import { slugify } from '../utils/collections'
+import Main from './Main.astro'
+import Layout from './Layout.astro'
 
 export type Props = {
-	pageNum: number;
-	totalPages: number;
-	posts: Array<PostEntry>;
-};
+	pageNum: number
+	totalPages: number
+	posts: Array<PostEntry>
+}
 
-const { pageNum, totalPages, posts } = Astro.props;
+const { pageNum, totalPages, posts } = Astro.props
 
-const prev = pageNum > 1 ? '' : 'disabled';
+const prev = pageNum > 1 ? '' : 'disabled'
 const next = pageNum < totalPages ? '' : 'disabled';
 ---
 
@@ -38,7 +38,7 @@ const next = pageNum < totalPages ? '' : 'disabled';
 			<nav class="pagination-wrapper" aria-label="Pagination">
 				<LinkButton
 					disabled={prev === 'disabled'}
-					href={`/posts${pageNum - 1 !== 1 ? '/' + (pageNum - 1) : ''}`}
+					href={`/posts${pageNum - 1 !== 1 ? `/${pageNum - 1}` : ''}`}
 					className={`mr-4 select-none ${prev}`}
 					ariaLabel="Previous"
 				>

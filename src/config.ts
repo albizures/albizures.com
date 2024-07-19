@@ -1,27 +1,27 @@
-import type { SocialMetaData } from './socialMedia';
+import type { SocialMetaData } from './socialMedia'
 
 export type Site = {
-	website: string;
-	author: string;
-	description: string;
-	title: string;
-	ogImage?: string;
-	lightAndDarkMode: boolean;
-	itemPerPage: number;
-};
+	website: string
+	author: string
+	description: string
+	title: string
+	ogImage?: string
+	lightAndDarkMode: boolean
+	itemPerPage: number
+}
 
 export const SITE: Site = {
 	website: 'https://albizures.com',
 	author: 'Jose Albizures',
 	description:
-		"I'm Jose - I'm a web developer from Guatemala 🇬🇹, I like to build useful (and useless too 😜) apps and play with code.",
+		'I\'m Jose - I\'m a web developer from Guatemala 🇬🇹, I like to build useful (and useless too 😜) apps and play with code.',
 	title: 'Jose Albizures',
 	// ogImage: 'main.jpg',
 	lightAndDarkMode: true,
 	itemPerPage: 6,
-} as const;
+} as const
 
-export const LOCALE = ['en-EN'] as const; // set to [] to use the environment default
+export const LOCALE = ['en-EN'] as const // set to [] to use the environment default
 
 export const SOCIALS: Array<SocialMetaData> = [
 	{
@@ -54,4 +54,4 @@ export const SOCIALS: Array<SocialMetaData> = [
 		linkTitle: `${SITE.title} on Twitter`,
 		active: true,
 	},
-];
+]

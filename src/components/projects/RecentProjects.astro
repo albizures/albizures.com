@@ -1,14 +1,14 @@
 ---
-import Section from '../Section.astro';
-import LinkButton from '../LinkButton.astro';
-import type { ProjectEntry } from '../../content/config';
-import { slugify } from '../../utils/collections';
-import { EntryList, ProjectItem } from '../EntryList';
+import Section from '../Section.astro'
+import LinkButton from '../LinkButton.astro'
+import type { ProjectEntry } from '../../content/config'
+import { slugify } from '../../utils/collections'
+import { EntryList, ProjectItem } from '../EntryList'
 
 export type Props = {
-	projects: Array<ProjectEntry>;
-	amount?: number;
-};
+	projects: Array<ProjectEntry>
+	amount?: number
+}
 
 const { projects, amount = 4 } = Astro.props;
 ---
@@ -20,7 +20,7 @@ const { projects, amount = 4 } = Astro.props;
 				<EntryList className="grid grid-cols-1 gap-2 sm:grid-cols-2">
 					{projects.map(({ data }, index) => {
 						if (data.featured || index > amount) {
-							return;
+							return <></>
 						}
 
 						return (
@@ -30,7 +30,7 @@ const { projects, amount = 4 } = Astro.props;
 								frontmatter={data}
 								sectionHeading={false}
 							/>
-						);
+						)
 					})}
 				</EntryList>
 				{projects.length > amount && (

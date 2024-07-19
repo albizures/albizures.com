@@ -50,7 +50,7 @@ export const blogSchema = z.object({
 	draft: z.boolean().optional(),
 	tags: z.array(z.string()).default(['others']), // replace "others" with whatever you want
 	// ---
-});
+})
 ```
 
 ### Sample Frontmatter

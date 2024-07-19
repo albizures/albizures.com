@@ -1,16 +1,16 @@
-import { LOCALE } from '../config';
-import { formatDate, formatTime } from '../utils/dates';
+import { LOCALE } from '../config'
+import { formatDate, formatTime } from '../utils/dates'
 
 export type Props = {
-	datetime: string | Date;
-	withTime?: boolean;
-	size?: 'sm' | 'lg';
-	className?: string;
-};
+	datetime: string | Date
+	withTime?: boolean
+	size?: 'sm' | 'lg'
+	className?: string
+}
 
 export default function Datetime(props: Props) {
-	const { datetime, size = 'sm', className, withTime = false } = props;
-	const date = new Date(datetime);
+	const { datetime, size = 'sm', className, withTime = false } = props
+	const date = new Date(datetime)
 	return (
 		<div className={`flex items-center space-x-2 opacity-80 ${className}`}>
 			<svg
@@ -35,5 +35,5 @@ export default function Datetime(props: Props) {
 				)}
 			</span>
 		</div>
-	);
+	)
 }

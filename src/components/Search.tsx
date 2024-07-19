@@ -1,33 +1,33 @@
-import React from 'react';
-import Fuse from 'fuse.js';
-import type { PostEntry } from '../content/config';
-import { slugify } from '../utils/collections';
-import { EntryList, PostItem } from './EntryList';
+import React from 'react'
+import Fuse from 'fuse.js'
+import type { PostEntry } from '../content/config'
+import { slugify } from '../utils/collections'
+import { EntryList, PostItem } from './EntryList'
 
 export type SearchItem = {
-	title: string;
-	description: string;
-	data: PostEntry['data'];
-};
+	title: string
+	description: string
+	data: PostEntry['data']
+}
 
 type Props = {
-	searchList: Array<SearchItem>;
-};
+	searchList: Array<SearchItem>
+}
 
 type SearchResult = {
-	item: SearchItem;
-	refIndex: number;
-};
+	item: SearchItem
+	refIndex: number
+}
 
 export default function SearchBar({ searchList }: Props) {
-	const inputRef = React.useRef<HTMLInputElement>(null);
-	const [inputVal, setInputVal] = React.useState('');
-	const [searchResults, setSearchResults] =
-		React.useState<Array<SearchResult> | null>(null);
+	const inputRef = React.useRef<HTMLInputElement>(null)
+	const [inputVal, setInputVal] = React.useState('')
+	const [searchResults, setSearchResults]
+		= React.useState<Array<SearchResult> | null>(null)
 
 	const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-		setInputVal(e.currentTarget.value);
-	};
+		setInputVal(e.currentTarget.value)
+	}
 
 	const fuse = React.useMemo(
 		() =>
@@ -38,41 +38,42 @@ export default function SearchBar({ searchList }: Props) {
 				threshold: 0.5,
 			}),
 		[searchList],
-	);
+	)
 
 	React.useEffect(() => {
 		// if URL has search query,
 		// insert that search query in input field
-		const searchUrl = new URLSearchParams(window.location.search);
-		const searchStr = searchUrl.get('q');
+		const searchUrl = new URLSearchParams(window.location.search)
+		const searchStr = searchUrl.get('q')
 		if (searchStr) {
-			setInputVal(searchStr);
+			setInputVal(searchStr)
 		}
 
 		// put focus cursor at the end of the string
-		setTimeout(function () {
-			inputRef.current!.selectionStart = inputRef.current!.selectionEnd =
-				searchStr?.length || 0;
-		}, 50);
-	}, []);
+		setTimeout(() => {
+			inputRef.current!.selectionStart = inputRef.current!.selectionEnd
+				= searchStr?.length || 0
+		}, 50)
+	}, [])
 
 	React.useEffect(() => {
 		// Add search result only if
 		// input value is more than one character
-		let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
-		setSearchResults(inputResult);
+		let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : []
+		setSearchResults(inputResult)
 
 		// Update search string in URL
 		if (inputVal.length > 0) {
-			const searchParams = new URLSearchParams(window.location.search);
-			searchParams.set('q', inputVal);
-			const newRelativePathQuery =
-				window.location.pathname + '?' + searchParams.toString();
-			history.replaceState(history.state, '', newRelativePathQuery);
-		} else {
-			history.replaceState(history.state, '', window.location.pathname);
+			const searchParams = new URLSearchParams(window.location.search)
+			searchParams.set('q', inputVal)
+			const newRelativePathQuery
+				= `${window.location.pathname}?${searchParams.toString()}`
+			history.replaceState(history.state, '', newRelativePathQuery)
 		}
-	}, [inputVal]);
+		else {
+			history.replaceState(history.state, '', window.location.pathname)
+		}
+	}, [inputVal])
 
 	return (
 		<>
@@ -83,9 +84,9 @@ export default function SearchBar({ searchList }: Props) {
 					</svg>
 				</span>
 				<input
-					className="block w-full rounded border border-primary-accent 
+					className="block w-full rounded border border-primary-accent
 					border-opacity-40 bg-base-100 py-3 pl-10
-					pr-3 placeholder:italic placeholder:text-opacity-75 
+					pr-3 placeholder:italic placeholder:text-opacity-75
 					focus:border-opacity-100 focus:outline-none"
 					placeholder="Search for anything..."
 					type="text"
@@ -100,24 +101,29 @@ export default function SearchBar({ searchList }: Props) {
 
 			{inputVal.length > 1 && (
 				<div className="mt-8">
-					Found {searchResults?.length}
+					Found
+					{' '}
+					{searchResults?.length}
 					{searchResults?.length && searchResults?.length === 1
 						? ' result'
-						: ' results'}{' '}
-					for '{inputVal}'
+						: ' results'}
+					{' '}
+					for '
+					{inputVal}
+					'
 				</div>
 			)}
 
 			<EntryList>
-				{searchResults &&
-					searchResults.map(({ item, refIndex }) => (
-						<PostItem
-							href={`/posts/${slugify(item.data)}`}
-							frontmatter={item.data}
-							key={`${refIndex}-${slugify(item.data)}`}
-						/>
-					))}
+				{searchResults
+				&& searchResults.map(({ item, refIndex }) => (
+					<PostItem
+						href={`/posts/${slugify(item.data)}`}
+						frontmatter={item.data}
+						key={`${refIndex}-${slugify(item.data)}`}
+					/>
+				))}
 			</EntryList>
 		</>
-	);
+	)
 }

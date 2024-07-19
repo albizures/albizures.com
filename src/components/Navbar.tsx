@@ -1,14 +1,14 @@
-import clsx from 'clsx';
-import React from 'react';
-import { SITE } from '../config';
-import { Icons } from './Icons';
+import clsx from 'clsx'
+import React from 'react'
+import { SITE } from '../config'
+import { Icons } from './Icons'
 
 type NavbarProps = {
-	activePage?: 'posts' | 'tags' | 'search' | 'projects';
-};
+	activePage?: 'posts' | 'tags' | 'search' | 'projects'
+}
 
-export function Navbar(props: NavbarProps) {
-	const { activePage } = props;
+export function Navbar(_props: NavbarProps) {
+	// const { activePage } = props
 	return (
 		<nav
 			id="nav-menu"
@@ -64,71 +64,71 @@ export function Navbar(props: NavbarProps) {
 				</NavbarItem>
 			</NavbarList>
 		</nav>
-	);
+	)
 }
 
-type LinkButtonProps = {
-	href: string;
-	title: string;
-	disabled?: boolean;
-	children?: React.ReactNode;
-	className?: string;
-	ariaLabel?: string;
-	isActive?: boolean;
-};
+// type LinkButtonProps = {
+// 	href: string
+// 	title: string
+// 	disabled?: boolean
+// 	children?: React.ReactNode
+// 	className?: string
+// 	ariaLabel?: string
+// 	isActive?: boolean
+// }
 
-function LinkButton(props: LinkButtonProps) {
-	const {
-		disabled = false,
-		href,
-		className,
-		title,
-		ariaLabel = title,
-		children = title,
-		isActive = false,
-	} = props;
+// function LinkButton(props: LinkButtonProps) {
+// 	const {
+// 		disabled = false,
+// 		href,
+// 		className,
+// 		title,
+// 		ariaLabel = title,
+// 		children = title,
+// 		isActive = false,
+// 	} = props
 
-	const classNames = clsx(
-		'group inline-block',
-		className,
-		isActive && 'text-primary',
-	);
-	return (
-		<a
-			href={disabled ? '#' : href}
-			tabIndex={disabled ? -1 : 0}
-			className={classNames}
-			aria-label={ariaLabel}
-			title={title}
-			aria-disabled={disabled}
-		>
-			{children}
-		</a>
-	);
-}
+// 	const classNames = clsx(
+// 		'group inline-block',
+// 		className,
+// 		isActive && 'text-primary',
+// 	)
+// 	return (
+// 		<a
+// 			href={disabled ? '#' : href}
+// 			tabIndex={disabled ? -1 : 0}
+// 			className={classNames}
+// 			aria-label={ariaLabel}
+// 			title={title}
+// 			aria-disabled={disabled}
+// 		>
+// 			{children}
+// 		</a>
+// 	)
+// }
 
 type NavbarItemProps = {
-	className?: string;
-	children: React.ReactNode;
-};
+	className?: string
+	children: React.ReactNode
+}
 
 function NavbarItem(props: NavbarItemProps) {
-	const { children, className } = props;
+	const { children, className } = props
 	return (
 		<li
 			className={clsx('col-span-2 flex items-center justify-center', className)}
 		>
 			{children}
 		</li>
-	);
+	)
 }
 
 type NavbarListProps = {
-	children: React.ReactNode;
-};
+	children: React.ReactNode
+}
 
 function NavbarList(props: NavbarListProps) {
-	const { children } = props;
+	const { children } = props
 	return (
 		<ul
 			id="menu-items"
@@ -136,5 +136,5 @@ function NavbarList(props: NavbarListProps) {
 		>
 			{children}
 		</ul>
-	);
+	)
 }

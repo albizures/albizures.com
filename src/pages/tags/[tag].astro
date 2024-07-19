@@ -1,41 +1,41 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Main from '../../layouts/Main.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE } from '../../config';
-import { getPosts, type PostEntry } from '../../content/config';
-import { EntryList, PostItem } from '../../components/EntryList';
+import Layout from '../../layouts/Layout.astro'
+import Main from '../../layouts/Main.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import { SITE } from '../../config'
+import { type PostEntry, getPosts } from '../../content/config'
+import { EntryList, PostItem } from '../../components/EntryList'
 import {
 	filderByTag,
-	sortCollection,
 	getUniqueTags,
 	slugify,
-} from '../../utils/collections';
+	sortCollection,
+} from '../../utils/collections'
 
 export type Props = {
-	post: PostEntry;
-	tag: string;
-};
+	post: PostEntry
+	tag: string
+}
 
 export async function getStaticPaths() {
-	const posts = await getPosts();
+	const posts = await getPosts()
 
-	const tags = getUniqueTags(posts);
+	const tags = getUniqueTags(posts)
 
 	return tags.map((tag) => {
 		return {
 			params: { tag },
 			props: { tag },
-		};
-	});
+		}
+	})
 }
 
-const { tag } = Astro.props;
+const { tag } = Astro.props
 
-const posts = await getPosts(({ data }) => !data.draft);
+const posts = await getPosts(({ data }) => !data.draft)
 
-const tagPosts = filderByTag(posts, tag);
+const tagPosts = filderByTag(posts, tag)
 
 const sortTagsPost = sortCollection(tagPosts);
 ---

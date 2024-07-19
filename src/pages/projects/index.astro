@@ -1,19 +1,19 @@
 ---
-import { SITE } from '../../config';
-import getPageNumbers from '../../utils/getPageNumbers';
-import { slugify, sortCollection } from '../../utils/collections';
-import { getProjects } from '../../content/config';
-import Header from '../../components/Header.astro';
-import Section from '../../components/Section.astro';
-import Layout from '../../layouts/Layout.astro';
-import { EntryList, ProjectItem } from '../../components/EntryList';
+import { SITE } from '../../config'
+// import getPageNumbers from '../../utils/getPageNumbers'
+import { slugify, sortCollection } from '../../utils/collections'
+import { getProjects } from '../../content/config'
+import Header from '../../components/Header.astro'
+import Section from '../../components/Section.astro'
+import Layout from '../../layouts/Layout.astro'
+import { EntryList, ProjectItem } from '../../components/EntryList'
 
-const projects = await getProjects();
+const projects = await getProjects()
 
-const sortedProjects = sortCollection(projects);
+const sortedProjects = sortCollection(projects)
 
 // TODO: Implement pagination
-const totalPages = getPageNumbers(sortedProjects.length);
+// const totalPages = getPageNumbers(sortedProjects.length)
 
 const paginatedProjects = sortedProjects.slice(0, SITE.itemPerPage);
 ---
@@ -32,7 +32,7 @@ const paginatedProjects = sortedProjects.slice(0, SITE.itemPerPage);
 								frontmatter={data}
 								sectionHeading={false}
 							/>
-						);
+						)
 					})
 				}
 			</EntryList>

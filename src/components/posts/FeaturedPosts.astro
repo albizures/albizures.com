@@ -1,14 +1,14 @@
 ---
-import { Card } from '../Card';
-import Section from '../Section.astro';
-import type { PostEntry } from '../../content/config';
-import { slugify } from '../../utils/collections';
+import { Card } from '../Card'
+import Section from '../Section.astro'
+import type { PostEntry } from '../../content/config'
+import { slugify } from '../../utils/collections'
 
 export type Props = {
-	posts: Array<PostEntry>;
-};
+	posts: Array<PostEntry>
+}
 
-const { posts } = Astro.props;
+const { posts } = Astro.props
 
 const featuredPosts = posts.filter(({ data }) => data.featured);
 ---

@@ -1,11 +1,11 @@
-import rss from '@astrojs/rss';
-import { SITE } from '../config';
-import { slugify, sortCollection } from '../utils/collections';
-import { getPosts } from '../content/config';
+import rss from '@astrojs/rss'
+import { SITE } from '../config'
+import { slugify, sortCollection } from '../utils/collections'
+import { getPosts } from '../content/config'
 
 export async function GET() {
-	const posts = await getPosts();
-	const sortedPosts = sortCollection(posts);
+	const posts = await getPosts()
+	const sortedPosts = sortCollection(posts)
 	return rss({
 		title: SITE.title,
 		description: SITE.description,
@@ -16,5 +16,5 @@ export async function GET() {
 			description: data.description,
 			pubDate: new Date(data.publicatedAt),
 		})),
-	});
+	})
 }

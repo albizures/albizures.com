@@ -1,23 +1,23 @@
-import type { IconType } from 'react-icons';
+import type { IconType } from 'react-icons'
 import {
-	LuSearch,
-	LuSun,
-	LuMoon,
-	LuMenu,
-	LuX,
 	LuExternalLink,
 	LuGithub,
 	LuGitlab,
-	LuTwitch,
-	LuTwitter,
-	LuYoutube,
 	LuInstagram,
 	LuLinkedin,
 	LuMail,
-} from 'react-icons/lu/index';
+	LuMenu,
+	LuMoon,
+	LuSearch,
+	LuSun,
+	LuTwitch,
+	LuTwitter,
+	LuX,
+	LuYoutube,
+} from 'react-icons/lu'
 
-import { FaTiktok, FaCodepen, FaSteam } from 'react-icons/fa/index';
-import type { SocialMedia } from '../socialMedia';
+import { FaCodepen, FaSteam, FaTiktok } from 'react-icons/fa'
+import type { SocialMedia } from '../socialMedia'
 
 export const Icons = {
 	Search: LuSearch,
@@ -26,7 +26,7 @@ export const Icons = {
 	Menu: LuMenu,
 	Close: LuX,
 	ExternalLink: LuExternalLink,
-};
+}
 
 export const SocialIcons: Record<SocialMedia, IconType> = {
 	GitLab: LuGitlab,
@@ -40,4 +40,4 @@ export const SocialIcons: Record<SocialMedia, IconType> = {
 	CodePen: FaCodepen,
 	Steam: FaSteam,
 	Mail: LuMail,
-};
+}
