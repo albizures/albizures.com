@@ -32,7 +32,6 @@ export function Navbar(props: NavbarProps) {
 						isActive={activePage === 'posts'}
 					/>
 				</NavbarItem>
-				</NavbarItem>
 				<NavbarItem className="col-span-1">
 					<LinkButton
 						href="/search"

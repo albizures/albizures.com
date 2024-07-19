@@ -43,6 +43,18 @@ const projects = defineCollection({
 				.or(z.string())
 				.optional(),
 			draft: z.boolean().default(true).optional(),
+			platforms: z
+				.array(
+					z.union([
+						z.literal('windows'),
+						z.literal('linux'),
+						z.literal('macos'),
+						z.literal('android'),
+						z.literal('ios'),
+					]),
+				)
+				.default([])
+				.optional(),
 			tags: z.array(z.string()).default(['others']),
 		}),
 });

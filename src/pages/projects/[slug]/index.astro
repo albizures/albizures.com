@@ -1,0 +1,54 @@
+---
+import getPageNumbers from '../../../utils/getPageNumbers';
+import { SITE } from '../../../config';
+import { slugify, sortCollection } from '../../../utils/collections';
+import { getProjects, type ProjectEntry } from '../../../content/config';
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Section from '../../../components/Section.astro';
+import { ExternalLink } from '../../../components/ExternalLink';
+
+export type Props = {
+	project: ProjectEntry;
+};
+
+export async function getStaticPaths() {
+	const items = await getProjects(({ data }) => !data.draft);
+
+	const result = items.map((project) => ({
+		params: { slug: slugify(project.data) },
+		props: { project },
+	}));
+
+	const pagePaths = getPageNumbers(items.length).map((pageNum) => ({
+		params: { slug: String(pageNum) },
+	}));
+
+	return [...result, ...pagePaths];
+}
+
+const { slug } = Astro.params;
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Layout>
+	<Header />
+	<main id="main-content">
+		<Section>
+			<h1 class="text-4xl font-semibold">
+				<span class="tracking-wide">{project.data.title}</span>
+				<ExternalLink
+					className="align-bottom"
+					title={project.data.title}
+					link={project.data.link}
+				/>
+			</h1>
+			<h4 class="mt-4 text-lg">{project.data.description}</h4>
+
+			<div>
+				<Content />
+			</div>
+		</Section>
+	</main>
+</Layout>

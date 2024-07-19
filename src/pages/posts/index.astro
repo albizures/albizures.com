@@ -11,7 +11,7 @@ const sortedPosts = sortCollection(posts);
 
 const totalPages = getPageNumbers(sortedPosts.length);
 
-const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
+const paginatedPosts = sortedPosts.slice(0, SITE.itemPerPage);
 ---
 
 <Posts posts={paginatedPosts} pageNum={1} totalPages={totalPages.length} />

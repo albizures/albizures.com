@@ -17,7 +17,7 @@ const { projects, amount = 4 } = Astro.props;
 	projects.length > 0 && (
 		<>
 			<Section title="Recent Projects">
-				<EntryList>
+				<EntryList className="grid grid-cols-1 gap-2 sm:grid-cols-2">
 					{projects.map(({ data }, index) => {
 						if (data.featured || index > amount) {
 							return;
@@ -25,9 +25,10 @@ const { projects, amount = 4 } = Astro.props;
 
 						return (
 							<ProjectItem
+								className="col-span-1"
 								href={`/projects/${slugify(data)}`}
 								frontmatter={data}
-								secHeading={false}
+								sectionHeading={false}
 							/>
 						);
 					})}

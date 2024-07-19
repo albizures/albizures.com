@@ -7,7 +7,7 @@ export type Site = {
 	title: string;
 	ogImage?: string;
 	lightAndDarkMode: boolean;
-	postPerPage: number;
+	itemPerPage: number;
 };
 
 export const SITE: Site = {
@@ -18,7 +18,7 @@ export const SITE: Site = {
 	title: 'Jose Albizures',
 	// ogImage: 'main.jpg',
 	lightAndDarkMode: true,
-	postPerPage: 6,
+	itemPerPage: 6,
 } as const;
 
 export const LOCALE = ['en-EN'] as const; // set to [] to use the environment default

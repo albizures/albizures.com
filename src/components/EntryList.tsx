@@ -1,30 +1,38 @@
 import React from 'react';
+import clsx from 'clsx';
 import { slugifyStr } from '../utils/collections';
 import Datetime from './Datetime';
-import { Icons } from './Icons';
+import { ExternalLink } from './ExternalLink';
 
 type EntryListProps = {
 	children: React.ReactNode;
+	className?: string;
 };
 
 export function EntryList(props: EntryListProps) {
-	const { children } = props;
-	return <ul className="entry-list">{children}</ul>;
+	const { children, className } = props;
+	return <ul className={clsx('entry-list', className)}>{children}</ul>;
 }
 
 type ProjectItemProps = {
 	href?: string;
+	className?: string;
 	frontmatter: {
 		title: string;
 		link: string;
 		description: string;
 		publicatedAt: Date;
 	};
-	secHeading?: boolean;
+	sectionHeading?: boolean;
 };
 
 export function ProjectItem(props: ProjectItemProps) {
-	const { href, frontmatter, secHeading = true } = props;
+	const {
+		href,
+		frontmatter,
+		sectionHeading: secHeading = true,
+		className,
+	} = props;
 	const { title, publicatedAt, description, link } = frontmatter;
 
 	const headerProps = {
@@ -33,29 +41,28 @@ export function ProjectItem(props: ProjectItemProps) {
 	};
 
 	const externalLink = (
-		<a
-			target="_blank"
-			className="ml-1 inline-block h-5 w-5 align-text-bottom hover:text-primary-accent"
-			href={link}
-		>
-			<span className="sr-only">{title} homepage</span>
-			<Icons.ExternalLink />
-		</a>
+		<ExternalLink
+			className="ml-1 h-5 w-5 align-text-bottom"
+			link={link}
+			title={`${title} homepage`}
+		/>
 	);
 
 	return (
-		<li className="item">
-			{secHeading ? (
-				<h2 {...headerProps}>
-					{title}
-					{externalLink}
-				</h2>
-			) : (
-				<h3 {...headerProps}>
-					{title}
-					{externalLink}
-				</h3>
-			)}
+		<li className={clsx('item', className)}>
+			<a href={href} className="title">
+				{secHeading ? (
+					<h2 {...headerProps}>
+						{title}
+						{externalLink}
+					</h2>
+				) : (
+					<h3 {...headerProps}>
+						{title}
+						{externalLink}
+					</h3>
+				)}
+			</a>
 			<Datetime datetime={publicatedAt} />
 			<p>{description}</p>
 		</li>
