@@ -1,3 +1,5 @@
+import type { IconName } from './icons'
+
 export type SocialMedia =
 	| 'Github'
 	| 'Instagram'
@@ -14,6 +16,7 @@ export type SocialMedia =
 
 export type SocialMetaData = {
 	name: SocialMedia
+	icon: IconName
 	href: string
 	active: boolean
 	linkTitle: string

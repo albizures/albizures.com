@@ -1,40 +1,32 @@
-import { defineConfig } from 'astro/config'
-import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
-import react from '@astrojs/react'
-import remarkToc from 'remark-toc'
-import remarkCollapse from 'remark-collapse'
-import { SITE } from './src/config'
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import react from '@astrojs/react';
+import remarkToc from 'remark-toc';
+import remarkCollapse from 'remark-collapse';
+import { SITE } from './src/config';
+
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	site: SITE.website,
-	integrations: [
-		tailwind({
-			applyBaseStyles: false,
-		}),
-		react(),
-		sitemap(),
-	],
-	markdown: {
-		remarkPlugins: [
-			remarkToc,
-			[
-				remarkCollapse,
-				{
-					test: 'Table of contents',
-				},
-			],
-		],
-		shikiConfig: {
-			theme: 'monokai',
-			wrap: true,
-		},
-	},
-	vite: {
-		optimizeDeps: {
-			exclude: ['@resvg/resvg-js'],
-		},
-	},
-	scopedStyleStrategy: 'where',
-})
+  site: SITE.website,
+  integrations: [tailwind({
+    applyBaseStyles: false
+  }), react(), sitemap(), icon()],
+  markdown: {
+    remarkPlugins: [remarkToc, [remarkCollapse, {
+      test: 'Table of contents'
+    }]],
+    shikiConfig: {
+      theme: 'monokai',
+      wrap: true
+    }
+  },
+  vite: {
+    optimizeDeps: {
+      exclude: ['@resvg/resvg-js']
+    }
+  },
+  scopedStyleStrategy: 'where'
+});

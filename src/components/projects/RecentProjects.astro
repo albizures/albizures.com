@@ -3,7 +3,8 @@ import Section from '../Section.astro'
 import LinkButton from '../LinkButton.astro'
 import type { ProjectEntry } from '../../content/config'
 import { slugify } from '../../utils/collections'
-import { EntryList, ProjectItem } from '../EntryList'
+import Icon from '../Icon.astro'
+import ProjectCard from './ProjectCard.astro'
 
 export type Props = {
 	projects: Array<ProjectEntry>
@@ -15,36 +16,34 @@ const { projects, amount = 4 } = Astro.props;
 
 {
 	projects.length > 0 && (
-		<>
-			<Section title="Recent Projects">
-				<EntryList className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-					{projects.map(({ data }, index) => {
-						if (data.featured || index > amount) {
-							return <></>
-						}
+		<Section title="Recent Projects">
+			<ul class="grid grid-cols-1 gap-2 mt-4 sm:grid-cols-2">
+				{projects.map((project, index) => {
+					const { data } = project
+					if (data.featured || index > amount) {
+						return <></>
+					}
 
-						return (
-							<ProjectItem
-								className="col-span-1"
-								href={`/projects/${slugify(data)}`}
-								frontmatter={data}
-								sectionHeading={false}
+					return (
+						<li>
+							<ProjectCard
+								description={data.description}
+								projectUrl={data.link}
+								title={data.title}
+								href={`/projects/${slugify(project)}`}
 							/>
-						)
-					})}
-				</EntryList>
-				{projects.length > amount && (
-					<div class="my-8 text-center">
-						<LinkButton href="/projects">
-							All Projects
-							<svg class="icon-base" xmlns="http://www.w3.org/2000/svg">
-								<path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
-							</svg>
-						</LinkButton>
-					</div>
-				)}
-			</Section>
-			<slot />
-		</>
+						</li>
+					)
+				})}
+			</ul>
+			{projects.length > amount && (
+				<div class="my-2 text-center">
+					<LinkButton href="/projects">
+						All Projects
+						<Icon class="inline-block text-xl" name="arrow-right" />
+					</LinkButton>
+				</div>
+			)}
+		</Section>
 	)
 }

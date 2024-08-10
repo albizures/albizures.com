@@ -1,6 +1,8 @@
 ---
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
+import Heading from '../components/Heading.astro'
+import Link from '../components/Link.astro'
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -17,27 +19,37 @@ import Layout from '../layouts/Layout.astro';
 				<span class="text-primary-content">content over primary</span>
 			</div>
 		</section>
+
 		<section class="bg-primary-content">
 			<div class="grid grid-cols-3">
 				<span>primary-content</span>
 				<span class="text-primary">primary over content</span>
-				<span class="text-primary-accent">accent over content</span>
 			</div>
 		</section>
-		<section class="bg-primary-accent text-center">primary-accent</section>
 
 		<section class="bg-secondary">secondary</section>
 		<section class="bg-secondary-content">
 			<div class="grid grid-cols-3">
 				<span>secondary-content</span>
 				<span class="text-secondary">secondary over content</span>
-				<span class="text-secondary-accent">accent over content</span>
 			</div>
 		</section>
-		<section class="bg-secondary-accent">secondary-accent</section>
+
 		<section class="bg-base-300 flex justify-center gap-2">
 			<button class="btn btn-primary">click me!</button>
 			<button class="btn btn-secondary">click me!</button>
+		</section>
+
+		<section class="text-left">
+			<Heading level={1}>Heading 1</Heading>
+			<Heading level={2}>Heading 2</Heading>
+			<Heading level={3}>Heading 3</Heading>
+			<Heading level={4}>Heading 4</Heading>
+		</section>
+
+		<section class="text-left">
+			<Link href="google.com">Link</Link>
+			<a class="link hover:link-hover" href="google.com">google</a>
 		</section>
 	</main>
 

@@ -1,8 +1,8 @@
 ---
-import { Card } from '../Card'
 import Section from '../Section.astro'
 import type { PostEntry } from '../../content/config'
 import { slugify } from '../../utils/collections'
+import PostCard from './PostCard.astro'
 
 export type Props = {
 	posts: Array<PostEntry>
@@ -18,13 +18,19 @@ const featuredPosts = posts.filter(({ data }) => data.featured);
 		<>
 			<Section title="Featured">
 				<ul>
-					{featuredPosts.map(({ data }) => (
-						<Card
-							href={`/posts/${slugify(data)}`}
-							frontmatter={data}
-							secHeading={false}
-						/>
-					))}
+					{featuredPosts.map((post) => {
+						const { data } = post
+						return (
+						<li>
+							<PostCard
+								href={`/posts/${slugify(post)}`}
+								title={data.title}
+								description={data.description}
+								publicatedAt={data.publicatedAt}
+							/>
+						</li>
+					)
+					})}
 				</ul>
 			</Section>
 			<slot />

@@ -11,10 +11,10 @@ export type Props = {
 }
 
 export async function getStaticPaths() {
-	const posts = await getPosts(({ data }) => !data.draft)
+	const posts = await getPosts(({ data }) => !data.draft || !import.meta.env.PROD)
 
 	const postResult = posts.map((post) => ({
-		params: { slug: slugify(post.data) },
+		params: { slug: slugify(post) },
 		props: { post },
 	}))
 
@@ -42,6 +42,7 @@ const lastPost = currentPage * SITE.itemPerPage
 const startPost = lastPost - SITE.itemPerPage
 
 const paginatedPosts = sortedPosts.slice(startPost, lastPost);
+
 ---
 
 {

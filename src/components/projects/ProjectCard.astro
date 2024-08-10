@@ -1,0 +1,39 @@
+---
+import Icon from '../Icon.astro'
+import ExternalLink from '../ExternalLink.astro'
+
+
+export type Props = {
+	href: string
+	projectUrl: string
+	title: string
+	description: string
+}
+
+const { href, title, description, projectUrl } = Astro.props
+
+---
+
+<a href={href}>
+	<div class="flex gap-3 group">
+	<div class="flex">
+		<div class="card-icon">
+			<Icon name="rss" class="text-primary text-3xl" />
+		</div>
+	</div>
+	<div>
+		<h3>
+			<span class="text-xl font-medium decoration-2 decoration-primary group-hover:underline">{title}</span>
+			<ExternalLink href={projectUrl} title={title} />
+		</h3>
+		<p>{description}</p>
+	</div>
+</div>
+</a>
+
+<style>
+	.card-icon {
+		@apply aspect-square flex-center w-14 h-14 bg-base-200 rounded-lg;
+		@apply group-hover:bg-base-300
+	}
+</style>

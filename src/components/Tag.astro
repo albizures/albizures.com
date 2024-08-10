@@ -1,41 +1,33 @@
 ---
+import Icon from './Icon.astro'
+
 export type Props = {
 	name: string
 	size?: 'sm' | 'lg'
 }
 
-const { name, size = 'sm' } = Astro.props;
+const { name, size = 'sm' } = Astro.props
+const lowerCaseName = name.toLowerCase()
+
 ---
 
 <li
-	class={`inline-block ${
-		size === 'sm' ? 'my-1 underline-offset-4' : 'my-3 mx-1 underline-offset-8'
-	}`}
+	class="inline-block"
+	class:list={{
+		'my-1 underline-offset-4': size === 'sm',
+		'my-3 mx-1 underline-offset-8': size === 'lg',
+	}}
 >
 	<a
-		href={`/tags/${name.toLowerCase()}`}
-		transition:name={name.toLowerCase()}
-		class={`${size === 'sm' ? 'text-sm' : 'text-lg'} pr-2 group`}
+		href={`/tags/${lowerCaseName}`}
+		transition:name={lowerCaseName}
+		class:list={{
+			'text-sm': size === 'sm',
+			'text-lg': size === 'lg',
+		}}
+		class="pr-2 relative underline decoration-dashed focus-visible:p-1 hover:decoration-2 hover:text-primary"
 	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			class={`${size === 'sm' ? ' scale-75' : 'scale-110'}`}
-		><path
-			d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
-			></path>
-		</svg> &nbsp;<span>{name.toLowerCase()}</span>
+		<Icon name="hash" class="inline-block" /><span>{lowerCaseName}</span>
 	</a>
 </li>
 
-<style>
-	a {
-		@apply relative underline decoration-dashed  focus-visible:p-1;
-	}
-
-	a:hover {
-		@apply -top-0.5 text-primary;
-	}
-	a svg {
-		@apply -mr-5 h-6 w-6 scale-95 text-base-content opacity-80 group-hover:fill-primary;
-	}
-</style>

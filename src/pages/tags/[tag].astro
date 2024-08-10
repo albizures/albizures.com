@@ -50,8 +50,8 @@ const sortTagsPost = sortCollection(tagPosts);
 		<h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
 		<EntryList>
 			{
-				sortTagsPost.map(({ data }) => (
-					<PostItem href={`/posts/${slugify(data)}`} frontmatter={data} />
+				sortTagsPost.map((post) => (
+					<PostItem href={`/posts/${slugify(post)}`} frontmatter={post.data} />
 				))
 			}
 		</EntryList>

@@ -2,9 +2,9 @@
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Tag from '../components/Tag.astro'
-import Datetime from '../components/Datetime'
 import type { PostEntry } from '../content/config'
 import { slugifyStr } from '../utils/collections'
+import Time from '../components/Time.astro'
 import Layout from './Layout.astro'
 
 export type Props = {
@@ -30,6 +30,7 @@ const ogUrl = new URL(
 	ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
 	Astro.url.origin,
 ).href;
+
 ---
 
 <Layout
@@ -40,39 +41,20 @@ const ogUrl = new URL(
 	canonicalURL={canonicalURL}
 >
 	<Header />
-	<div class="mx-auto flex w-full max-w-3xl justify-start px-2">
-		<button
-			class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-			onclick="history.back()"
-		>
-			<svg xmlns="http://www.w3.org/2000/svg"><path
-				d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-			                                        ></path>
-			</svg><span>Go back</span>
-		</button>
-	</div>
-	<main id="main-content">
-		<h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-		<Datetime datetime={pubDatetime} size="lg" className="my-2" />
-		<article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
-			<Content />
-		</article>
+	<main id="main-content" class="mt-4">
+		<section>
+			<h1 transition:name={slugifyStr(title)} class="text-3xl mb-2 font-semibold">{title}</h1>
+			<Time date={pubDatetime} size="lg" />
+			<article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+				<Content />
+			</article>
 
-		<ul class="tags-container">
-			{tags.map((tag) => <Tag name={slugifyStr(tag)} />)}
-		</ul>
+			<ul class="my-8">
+				{tags.map((tag) => <Tag name={slugifyStr(tag)} />)}
+			</ul>
+
+		</section>
 	</main>
 	<Footer />
 </Layout>
 
-<style>
-	main {
-		@apply mx-auto w-full max-w-3xl px-4 pb-12;
-	}
-	.post-title {
-		@apply text-2xl font-semibold text-primary;
-	}
-	.tags-container {
-		@apply my-8;
-	}
-</style>

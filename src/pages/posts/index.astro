@@ -1,17 +1,36 @@
 ---
-import { SITE } from '../../config';
-import Posts from '../../layouts/Posts.astro';
-import getPageNumbers from '../../utils/getPageNumbers';
-import { sortCollection } from '../../utils/collections';
-import { getPosts } from '../../content/config';
+import { slugify, sortCollection } from '../../utils/collections'
+import { getPosts } from '../../content/config'
+import Header from '../../components/Header.astro'
+import Section from '../../components/Section.astro'
+import Layout from '../../layouts/Layout.astro'
+import PostCard from '../../components/posts/PostCard.astro'
 
-const posts = await getPosts();
+const posts = await getPosts()
 
-const sortedPosts = sortCollection(posts);
+const sortedPosts = sortCollection(posts)
 
-const totalPages = getPageNumbers(sortedPosts.length);
-
-const paginatedPosts = sortedPosts.slice(0, SITE.itemPerPage);
 ---
 
-<Posts posts={paginatedPosts} pageNum={1} totalPages={totalPages.length} />
+<Layout>
+	<Header activeNav="projects" />
+	<main id="main-content">
+		<Section title="All Projects">
+			<ul>
+				{sortedPosts.map((projects) => {
+					const { data } = projects
+					return (
+						<li>
+							<PostCard
+								title={data.title}
+								description={data.description}
+								publicatedAt={data.publicatedAt}
+								href={`/projects/${slugify(projects)}`}
+							/>
+						</li>
+					)
+				})}
+			</ul>
+		</Section>
+	</main>
+</Layout>

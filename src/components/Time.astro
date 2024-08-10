@@ -1,0 +1,34 @@
+---
+import { LOCALE } from '../config'
+import { formatDate, formatTime } from '../utils/dates'
+import Icon from './Icon.astro'
+
+type Props = {
+	date: Date
+	size?: 'sm' | 'lg'
+	withTime?: boolean
+}
+
+const { date, size = 'sm', withTime = false } = Astro.props
+
+---
+
+<div class="flex items-center space-x-2 opacity-60 hover:opacity-100">
+	<Icon name="calendar" class="text-secondary" />
+	<span class="sr-only">Posted on:</span>
+	<span
+		class:list={{
+			'text-sm': size === 'sm',
+			'text-base': size === 'lg',
+		}}
+	>
+		{formatDate(date, LOCALE[0])}
+		{withTime && (
+			<>
+				<span aria-hidden="true"> | </span>
+				<span class="sr-only">&nbsp;at&nbsp;</span>
+				{formatTime(date, LOCALE[0])}
+			</>
+		)}
+	</span>
+</div>

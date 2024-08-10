@@ -10,11 +10,11 @@ export async function GET() {
 		title: SITE.title,
 		description: SITE.description,
 		site: SITE.website,
-		items: sortedPosts.map(({ data }) => ({
-			link: `posts/${slugify(data)}`,
-			title: data.title,
-			description: data.description,
-			pubDate: new Date(data.publicatedAt),
+		items: sortedPosts.map((post) => ({
+			link: `posts/${slugify(post)}`,
+			title: post.data.title,
+			description: post.data.description,
+			pubDate: new Date(post.data.publicatedAt),
 		})),
 	})
 }

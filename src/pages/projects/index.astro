@@ -1,41 +1,36 @@
 ---
-import { SITE } from '../../config'
-// import getPageNumbers from '../../utils/getPageNumbers'
 import { slugify, sortCollection } from '../../utils/collections'
 import { getProjects } from '../../content/config'
 import Header from '../../components/Header.astro'
 import Section from '../../components/Section.astro'
 import Layout from '../../layouts/Layout.astro'
-import { EntryList, ProjectItem } from '../../components/EntryList'
+import ProjectCard from '../../components/projects/ProjectCard.astro'
 
 const projects = await getProjects()
 
 const sortedProjects = sortCollection(projects)
 
-// TODO: Implement pagination
-// const totalPages = getPageNumbers(sortedProjects.length)
-
-const paginatedProjects = sortedProjects.slice(0, SITE.itemPerPage);
 ---
 
 <Layout>
 	<Header activeNav="projects" />
 	<main id="main-content">
 		<Section title="All Projects">
-			<EntryList className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-				{
-					paginatedProjects.map(({ data }) => {
-						return (
-							<ProjectItem
-								className="col-span-1"
-								href={`/projects/${slugify(data)}`}
-								frontmatter={data}
-								sectionHeading={false}
+			<ul class="grid grid-cols-1 gap-2 mt-4 sm:grid-cols-2">
+				{sortedProjects.map((projects) => {
+					const { data } = projects
+					return (
+						<li>
+							<ProjectCard
+								description={data.description}
+								projectUrl={data.link}
+								title={data.title}
+								href={`/projects/${slugify(projects)}`}
 							/>
-						)
-					})
-				}
-			</EntryList>
+						</li>
+					)
+				})}
+			</ul>
 		</Section>
 	</main>
 </Layout>

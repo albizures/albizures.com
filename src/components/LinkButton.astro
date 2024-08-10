@@ -12,7 +12,7 @@ const { href, className, ariaLabel, title, disabled = false } = Astro.props;
 
 <a
 	href={disabled ? '#' : href}
-	class={`group inline-block ${className} hover:text-primary-accent`}
+	class={`group btn btn-ghost ${className}`}
 	aria-label={ariaLabel}
 	title={title}
 	aria-disabled={disabled}

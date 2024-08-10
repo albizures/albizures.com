@@ -1,0 +1,22 @@
+---
+export type Props = {
+	level: 1 | 2 | 3 | 4 | 5
+	className?: string
+}
+
+const { level = 1, className = '' } = Astro.props
+
+const H = `h${level}`
+
+---
+<H class:list={{
+	'font-bold': true,
+	'text-5xl leading-10 tracking-tight mt-2': level === 1,
+	'text-4xl leading-10 tracking-tight mt-2': level === 2,
+	'text-2xl leading-8': level === 3,
+	'text-lg leading-8': level === 4,
+	[className]: className,
+}}
+>
+	<slot />
+</H>

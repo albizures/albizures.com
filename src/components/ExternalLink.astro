@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro'
+
+
+export type Props = {
+	href: string
+	title: string
+}
+
+const { href, title } = Astro.props
+
+---
+
+<a
+	target="_blank"
+	class="inline-block hover:text-primary-accent"
+	href={href}
+>
+	<span class="sr-only">{title}</span>
+	<Icon name="external-link" />
+</a>

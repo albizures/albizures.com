@@ -1,9 +1,10 @@
 ---
-import { Card } from '../Card'
 import Section from '../Section.astro'
 import LinkButton from '../LinkButton.astro'
 import type { PostEntry } from '../../content/config'
 import { slugify } from '../../utils/collections'
+import Icon from '../Icon.astro'
+import PostCard from './PostCard.astro'
 
 export type Props = {
 	posts: Array<PostEntry>
@@ -17,26 +18,28 @@ const { posts, amount = 4 } = Astro.props;
 	posts.length > 0 && (
 		<Section title="Recent Posts">
 			<ul>
-				{posts.map(({ data }, index) => {
+				{posts.map((post, index) => {
+					const { data } = post
 					if (data.featured || index > amount) {
 						return <></>
 					}
 
 					return (
-						<Card
-							href={`/posts/${slugify(data)}`}
-							frontmatter={data}
-							secHeading={false}
-						/>
+						<li>
+							<PostCard
+								href={`/posts/${slugify(post)}`}
+								title={data.title}
+								description={data.description}
+								publicatedAt={data.publicatedAt}
+							/>
+						</li>
 					)
 				})}
 			</ul>
-			<div class="my-8 text-center">
+			<div class="my-2 text-center">
 				<LinkButton href="/posts">
 					All Posts
-					<svg xmlns="http://www.w3.org/2000/svg">
-						<path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
-					</svg>
+					<Icon class="inline-block text-xl" name="arrow-right" />
 				</LinkButton>
 			</div>
 		</Section>

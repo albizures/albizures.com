@@ -4,7 +4,7 @@ type WithDraft = Partial<Record<'draft', boolean | undefined>>
 type WithDate = Record<'publicatedAt', Date>
 type WithTags = Record<'tags', Array<string>>
 type WithSlug = Partial<Record<'slug', string>>
-type WithTitle = Record<'title', string>
+type WithTitle = Record<'data', Record<'title', string>>
 
 type Data<TProperties> = Record<'data', TProperties>
 
@@ -47,7 +47,7 @@ export function slugifyStr(str: string) {
 }
 
 export function slugify(post: WithSlug & WithTitle) {
-	return post.slug ? slugger(post.slug) : slugger(post.title)
+	return post.slug ? slugger(post.slug) : slugger(post.data.title)
 }
 
 export function slugifyAll(arr: Array<string>) {

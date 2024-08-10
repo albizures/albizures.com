@@ -1,0 +1,20 @@
+---
+export type Props = {
+	href: string
+	className?: string
+}
+
+const { href, className = '' } = Astro.props
+
+---
+
+<a
+	class:list={{
+		link: true,
+		[className]: className,
+	}}
+	href={href}
+>
+	<slot />
+</a>
+

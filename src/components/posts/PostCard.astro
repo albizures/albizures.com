@@ -1,0 +1,27 @@
+---
+import { slugifyStr } from '../../utils/collections'
+import Time from '../Time.astro'
+
+
+export type Props = {
+	href: string
+	title: string
+	description: string
+	publicatedAt: Date
+}
+
+const { href, title, description, publicatedAt } = Astro.props
+
+const headerProps = {
+	style: { viewTransitionName: slugifyStr(title) },
+	class: 'text-xl font-medium decoration-dashed hover:underline',
+}
+
+---
+<div>
+	<a href={href} class="title">
+		<h3 {...headerProps}>{title}</h3>
+	</a>
+	<Time date={publicatedAt} />
+	<p>{description}</p>
+</div>

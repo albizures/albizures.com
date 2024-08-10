@@ -1,0 +1,18 @@
+---
+import { Icon as AstroIcon } from 'astro-icon/components'
+import { type IconName, icons } from '../icons'
+
+
+
+export type Props = {
+  name: IconName
+  class?: string
+  id?: string
+}
+
+const { name, class: className, id } = Astro.props
+
+const iconName = icons[name];
+---
+
+<AstroIcon id={id} class={className} name={iconName} />

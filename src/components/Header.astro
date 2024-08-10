@@ -1,62 +1,50 @@
 ---
-import { SITE } from '../config'
-import Hr from './Hr.astro'
-import { Navbar } from './Navbar'
+import Icon from './Icon.astro'
 
 export type Props = {
 	activeNav?: 'posts' | 'tags' | 'search' | 'projects'
 }
 
-const { activeNav } = Astro.props;
 ---
 
-<header>
+<header class="w-full">
 	<a
 		id="skip-to-content"
 		class="absolute -top-full left-16 z-50 bg-primary-content px-3 py-2 text-primary transition-all focus:top-4"
 		href="#main-content"
-	>Skip to content</a
 	>
-	<div
-		class="nav-container mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row"
-	>
-		<div
-			class="relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8"
-		>
+		Skip to content
+	</a>
+	<div class="flex flex-col items-center justify-between sm:flex-row">
+		<div class="relative flex w-full items-start justify-between py-4 sm:items-center sm:py-8">
 			<a
 				href="/"
-				class="absolute whitespace-nowrap py-1 text-xl font-semibold sm:static sm:text-2xl"
+				class="whitespace-nowrap btn font-semibold text-xl sm:text-2xl"
 			>
-				{SITE.title}
+				Jose
+				<span class="text-primary">Albizures</span>
 			</a>
-			<Navbar activePage={activeNav} />
+			<div>
+				<button
+					id="theme-btn"
+					class="p-3 hover:text-primary sm:p-1"
+					title="Toggles light & dark"
+					aria-label="auto"
+					aria-live="polite"
+				>
+					<Icon
+						name="moon"
+						class="inline-block h-6 w-6 scale-125 hover:rotate-12 sm:scale-100"
+						id="dark-icon"
+					/>
+					<Icon
+						name="sun"
+						class="inline-block h-6 w-6 scale-125 hover:rotate-12 sm:scale-100"
+						id="light-icon"
+					/>
+				</button>
+			</div>
 		</div>
 	</div>
-	<Hr />
 </header>
 
-<style></style>
-
-<script>
-function toggleNav() {
-	// Toggle menu
-	const menuBtn = document.querySelector('.hamburger-menu')
-	const menuItems = document.querySelector('#menu-items')
-
-	menuBtn?.addEventListener('click', () => {
-		const menuExpanded = menuBtn.getAttribute('aria-expanded') === 'true'
-		menuBtn?.classList.toggle('active')
-		menuBtn.setAttribute('aria-expanded', menuExpanded ? 'false' : 'true')
-		menuBtn.setAttribute(
-			'aria-label',
-			menuExpanded ? 'Open Menu' : 'Close Menu',
-		)
-		menuItems?.classList.toggle('hidden')
-	})
-}
-
-toggleNav()
-
-// Runs on view transitions navigation
-document.addEventListener('astro:after-swap', toggleNav)
-</script>

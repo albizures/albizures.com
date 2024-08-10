@@ -26,8 +26,8 @@ const next = pageNum < totalPages ? '' : 'disabled';
 	<Main pageTitle="Posts" pageDesc="All the articles I've posted.">
 		<EntryList>
 			{
-				posts.map(({ data }) => (
-					<PostItem href={`/posts/${slugify(data)}`} frontmatter={data} />
+				posts.map((post) => (
+					<PostItem href={`/posts/${slugify(post)}`} frontmatter={post.data} />
 				))
 			}
 		</EntryList>

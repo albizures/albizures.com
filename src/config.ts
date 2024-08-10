@@ -26,32 +26,37 @@ export const LOCALE = ['en-EN'] as const // set to [] to use the environment def
 export const SOCIALS: Array<SocialMetaData> = [
 	{
 		name: 'Github',
+		icon: 'github',
 		href: 'https://github.com/albizures',
 		linkTitle: ` ${SITE.title} on Github`,
 		active: true,
 	},
 	{
 		name: 'Instagram',
+		icon: 'instagram',
 		href: 'https://instagram.com/albzrs',
 		linkTitle: `${SITE.title} on Instagram`,
 		active: true,
 	},
 	{
-		name: 'Linkedin',
-		href: 'https://www.linkedin.com/in/albizures/',
-		linkTitle: `${SITE.title} on LinkedIn`,
-		active: true,
-	},
-	{
 		name: 'Mail',
+		icon: 'mail',
 		href: 'mailto:jose@albizures.com',
 		linkTitle: `Send an email to ${SITE.title}`,
 		active: true,
 	},
 	{
 		name: 'Twitter',
+		icon: 'twitter',
 		href: 'https://twitter.com/albzrs',
 		linkTitle: `${SITE.title} on Twitter`,
+		active: true,
+	},
+	{
+		name: 'Linkedin',
+		icon: 'linkedin',
+		href: 'https://www.linkedin.com/in/albizures/',
+		linkTitle: `${SITE.title} on LinkedIn`,
 		active: true,
 	},
 ]
