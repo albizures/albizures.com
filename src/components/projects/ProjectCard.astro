@@ -17,7 +17,7 @@ const { href, title, description, projectUrl } = Astro.props
 <a href={href}>
 	<div class="flex gap-3 group">
 	<div class="flex">
-		<div class="card-icon">
+		<div class="card-icon flex-center">
 			<Icon name="rss" class="text-primary text-3xl" />
 		</div>
 	</div>
@@ -33,7 +33,7 @@ const { href, title, description, projectUrl } = Astro.props
 
 <style>
 	.card-icon {
-		@apply aspect-square flex-center w-14 h-14 bg-base-200 rounded-lg;
+		@apply aspect-square w-14 h-14 bg-base-200 rounded-lg;
 		@apply group-hover:bg-base-300
 	}
 </style>

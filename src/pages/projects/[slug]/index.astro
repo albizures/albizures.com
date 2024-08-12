@@ -1,5 +1,4 @@
 ---
-import getPageNumbers from '../../../utils/getPageNumbers'
 import { slugify } from '../../../utils/collections'
 import { type ProjectEntry, getProjects } from '../../../content/config'
 import Layout from '../../../layouts/Layout.astro'
@@ -17,14 +16,11 @@ export async function getStaticPaths() {
 		props: { project },
 	}))
 
-	const pagePaths = getPageNumbers(items.length).map((pageNum) => ({
-		params: { slug: String(pageNum) },
-	}))
-
-	return [...result, ...pagePaths]
+	return [...result]
 }
 
 const { project } = Astro.props
+
 const { Content } = await project.render();
 ---
 
