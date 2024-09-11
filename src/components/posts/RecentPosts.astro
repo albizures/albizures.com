@@ -17,7 +17,7 @@ const { posts, amount = 4 } = Astro.props;
 {
 	posts.length > 0 && (
 		<Section title="Recent Posts">
-			<ul>
+			<ul class="space-y-8">
 				{posts.map((post, index) => {
 					const { data } = post
 					if (data.featured || index > amount) {
