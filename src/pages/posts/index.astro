@@ -13,19 +13,19 @@ const sortedPosts = sortCollection(posts)
 ---
 
 <Layout>
-	<Header activeNav="projects" />
+	<Header activeNav="posts" />
 	<main id="main-content">
 		<Section title="All Posts">
 			<ul>
-				{sortedPosts.map((projects) => {
-					const { data } = projects
+				{sortedPosts.map((post) => {
+					const { data } = post
 					return (
 						<li>
 							<PostCard
 								title={data.title}
 								description={data.description}
 								publicatedAt={data.publicatedAt}
-								href={`/projects/${slugify(projects)}`}
+								href={`/posts/${slugify(post)}`}
 							/>
 						</li>
 					)
