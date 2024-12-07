@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import Socials from '../components/Socials.astro'
+import Header from '../components/Header.astro'
+import Icon from '../components/Icon.astro'
 import FeaturedPosts from '../components/posts/FeaturedPosts.astro'
 import RecentPosts from '../components/posts/RecentPosts.astro'
 import RecentProjects from '../components/projects/RecentProjects.astro'
+import Socials from '../components/Socials.astro'
 import { SOCIALS } from '../config'
-import { sortCollection } from '../utils/collections'
 import { getPosts, getProjects } from '../content/config'
-import Icon from '../components/Icon.astro'
+import Layout from '../layouts/Layout.astro'
+import { sortCollection } from '../utils/collections'
 
 const posts = await getPosts()
 const projects = sortCollection(await getProjects())

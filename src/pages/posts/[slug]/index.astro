@@ -1,10 +1,10 @@
 ---
-import Posts from '../../../layouts/Posts.astro'
-import PostDetails from '../../../layouts/PostDetails.astro'
-import getPageNumbers from '../../../utils/getPageNumbers'
 import { SITE } from '../../../config'
+import { getPosts, type PostEntry } from '../../../content/config'
+import PostDetails from '../../../layouts/PostDetails.astro'
+import Posts from '../../../layouts/Posts.astro'
 import { slugify, sortCollection } from '../../../utils/collections'
-import { type PostEntry, getPosts } from '../../../content/config'
+import getPageNumbers from '../../../utils/getPageNumbers'
 
 export type Props = {
 	post: PostEntry

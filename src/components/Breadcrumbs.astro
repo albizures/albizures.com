@@ -21,8 +21,10 @@ if (breadcrumbList[0] === 'posts') {
 			<span aria-hidden="true">&nbsp;&gt;&nbsp;</span>
 		</li>
 		{
-			breadcrumbList.map((breadcrumb, index) =>
-				index + 1 === breadcrumbList.length ? (
+			breadcrumbList.map((breadcrumb, index) => {
+				const isLast = index === breadcrumbList.length - 1
+
+				if (isLast) {
 					<li>
 						<span
 							class={`${index > 0 ? 'lowercase' : 'capitalize'}`}
@@ -32,13 +34,15 @@ if (breadcrumbList[0] === 'posts') {
 							{breadcrumb}
 						</span>
 					</li>
-				) : (
+				}
+
+				return (
 					<li>
 						<a href={`/${breadcrumb}`}>{breadcrumb}</a>
 						<span aria-hidden="true">&nbsp;&gt;&nbsp;</span>
 					</li>
-				),
-			)
+				)
+			})
 		}
 	</ul>
 </nav>

@@ -1,6 +1,6 @@
-import React from 'react'
-import Fuse from 'fuse.js'
 import type { PostEntry } from '../content/config'
+import Fuse from 'fuse.js'
+import React from 'react'
 import { slugify } from '../utils/collections'
 import { EntryList, PostItem } from './EntryList'
 
@@ -59,7 +59,7 @@ export default function SearchBar({ searchList }: Props) {
 	React.useEffect(() => {
 		// Add search result only if
 		// input value is more than one character
-		let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : []
+		const inputResult = inputVal.length > 1 ? fuse.search(inputVal) : []
 		setSearchResults(inputResult)
 
 		// Update search string in URL

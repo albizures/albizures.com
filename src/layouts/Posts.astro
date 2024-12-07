@@ -1,13 +1,13 @@
 ---
-import { SITE } from '../config'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import LinkButton from '../components/LinkButton.astro'
 import type { PostEntry } from '../content/config'
 import { EntryList, PostItem } from '../components/EntryList'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import LinkButton from '../components/LinkButton.astro'
+import { SITE } from '../config'
 import { slugify } from '../utils/collections'
-import Main from './Main.astro'
 import Layout from './Layout.astro'
+import Main from './Main.astro'
 
 export type Props = {
 	pageNum: number

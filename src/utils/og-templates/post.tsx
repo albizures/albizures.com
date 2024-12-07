@@ -1,7 +1,7 @@
-import { SITE } from '../../config';
-import type { PostEntry } from '../../content/config';
+import type { PostEntry } from '../../content/config'
+import { SITE } from '../../config'
 
-export default (post: PostEntry) => {
+export default function post(post: PostEntry) {
 	return (
 		<div
 			style={{
@@ -72,7 +72,8 @@ export default (post: PostEntry) => {
 						}}
 					>
 						<span>
-							by{' '}
+							by
+							{' '}
 							<span
 								style={{
 									color: 'transparent',
@@ -92,5 +93,5 @@ export default (post: PostEntry) => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}

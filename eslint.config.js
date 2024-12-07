@@ -25,6 +25,7 @@ export default antfu(
 	},
 	{
 		rules: {
+			'antfu/no-top-level-await': 'off',
 			'ts/array-type': ['error', { default: 'generic', readonly: 'generic' }],
 			'ts/consistent-type-definitions': ['error', 'type'],
 			'ts/indent': 'off',

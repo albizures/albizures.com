@@ -1,6 +1,6 @@
-import { SITE } from '../../config';
+import { SITE } from '../../config'
 
-export default () => {
+export default function site() {
 	return (
 		<div
 			style={{
@@ -83,5 +83,5 @@ export default () => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}

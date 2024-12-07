@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss'
 import { SITE } from '../config'
-import { slugify, sortCollection } from '../utils/collections'
 import { getPosts } from '../content/config'
+import { slugify, sortCollection } from '../utils/collections'
 
 export async function GET() {
 	const posts = await getPosts()

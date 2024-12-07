@@ -1,5 +1,5 @@
-import React from 'react'
 import clsx from 'clsx'
+import React from 'react'
 import { slugifyStr } from '../utils/collections'
 import Datetime from './Datetime'
 

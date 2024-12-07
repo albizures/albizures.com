@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
+import { getPosts, type PostEntry } from '../../../content/config'
 import { slugifyStr } from '../../../utils/collections'
 import { generateOgImageForPost } from '../../../utils/ogImages'
-import { type PostEntry, getPosts } from '../../../content/config'
 
 export async function getStaticPaths() {
 	const posts = await getPosts().then((p) =>

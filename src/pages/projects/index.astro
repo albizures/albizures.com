@@ -1,10 +1,10 @@
 ---
-import { slugify, sortCollection } from '../../utils/collections'
-import { getProjects } from '../../content/config'
 import Header from '../../components/Header.astro'
-import Section from '../../components/Section.astro'
-import Layout from '../../layouts/Layout.astro'
 import ProjectCard from '../../components/projects/ProjectCard.astro'
+import Section from '../../components/Section.astro'
+import { getProjects } from '../../content/config'
+import Layout from '../../layouts/Layout.astro'
+import { slugify, sortCollection } from '../../utils/collections'
 
 const projects = await getProjects()
 

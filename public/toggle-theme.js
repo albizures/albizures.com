@@ -8,7 +8,9 @@ const currentTheme = localStorage.getItem('theme')
 
 function getPreferTheme() {
 	// return theme value in local storage if it is set
-	if (currentTheme) { return currentTheme }
+	if (currentTheme) {
+		return currentTheme
+	}
 
 	// return user device's prefer color scheme
 	return window.matchMedia('(prefers-color-scheme: dark)').matches
