@@ -9,7 +9,7 @@ tags:
   - cli
   - open-source
 platforms:
-	- macos
+  - macos
 ---
 
 TBD

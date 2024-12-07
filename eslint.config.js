@@ -25,7 +25,6 @@ export default antfu(
 	},
 	{
 		rules: {
-			'prefer-const': 'off',
 			'ts/array-type': ['error', { default: 'generic', readonly: 'generic' }],
 			'ts/consistent-type-definitions': ['error', 'type'],
 			'ts/indent': 'off',
