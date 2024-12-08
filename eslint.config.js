@@ -4,7 +4,6 @@ export default antfu(
 	{
 		typescript: true,
 		astro: true,
-		react: true,
 		stylistic: {
 			indent: 'tab',
 		},
