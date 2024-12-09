@@ -16,7 +16,7 @@ const sortedPosts = sortCollection(posts)
 	<Header activeNav="posts" />
 	<main id="main-content">
 		<Section title="All Posts">
-			<ul>
+			<ul class="space-y-8">
 				{sortedPosts.map((post) => {
 					const { data } = post
 					return (

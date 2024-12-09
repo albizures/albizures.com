@@ -16,7 +16,7 @@ export type Props = {
 		Skip to content
 	</a>
 	<div class="flex flex-col items-center justify-between sm:flex-row">
-		<div class="relative flex w-full items-start justify-between py-4 sm:items-center sm:py-8">
+		<div class="relative flex w-full items-start justify-between py-4 sm:items-center">
 			<a
 				href="/"
 				class="whitespace-nowrap btn font-semibold text-xl sm:text-2xl"
@@ -25,26 +25,56 @@ export type Props = {
 				<span class="text-primary">Albizures</span>
 			</a>
 			<div>
-				<button
-					id="theme-btn"
-					class="p-3 hover:text-primary sm:p-1"
-					title="Toggles light & dark"
-					aria-label="auto"
-					aria-live="polite"
-				>
+				<button data-header-menu-btn class="p-3 hover:text-primary sm:p-1 md:hidden">
 					<Icon
-						name="moon"
-						class="inline-block h-6 w-6 scale-125 hover:rotate-12 sm:scale-100"
-						id="dark-icon"
-					/>
-					<Icon
-						name="sun"
-						class="inline-block h-6 w-6 scale-125 hover:rotate-12 sm:scale-100"
-						id="light-icon"
+						name="menu"
+						class="h-6 w-6"
+						id="menu-icon"
 					/>
 				</button>
+				<div data-header-items class="hidden bg-base-100 p-4 flex-col w-full left-0 md:flex md:flex-row space-x-2">
+					<a href="/posts" class="btn btn-ghost capitalize">blog</a>
+					<a href="/projects" class="btn btn-ghost capitalize">projects</a>
+					<a
+						target="_blank"
+						href="/rss.xml"
+						class="btn btn-ghost"
+						aria-label="rss feed"
+						title="RSS Feed"
+					>
+					<Icon class="inline-block text-2xl align-text-bottom hover:text-primary" name="rss" />
+				</a>
+					<button
+						id="theme-btn"
+						class="btn btn-ghost"
+						title="Toggles light & dark"
+						aria-label="auto"
+						aria-live="polite"
+					>
+						<Icon
+							name="moon"
+							class="inline-block text-2xl scale-125 hover:rotate-12 sm:scale-100"
+							id="dark-icon"
+						/>
+						<Icon
+							name="sun"
+							class="inline-block text-2xl scale-125 hover:rotate-12 sm:scale-100"
+							id="light-icon"
+						/>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
 </header>
 
+<script is:inline>
+const container = document.querySelector('[data-header-items]')
+const menuBtn = document.querySelector('[data-header-menu-btn]')
+
+menuBtn.addEventListener('click', () => {
+	container.classList.toggle('hidden')
+	container.classList.toggle('fixed')
+	container.classList.toggle('flex')
+})
+</script>

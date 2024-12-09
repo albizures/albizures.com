@@ -15,6 +15,7 @@ export const icons = {
 	'linkedin': 'fa-brands:linkedin',
 	'instagram': 'fa-brands:instagram',
 	'youtube': 'fa-brands:youtube',
+	'menu': 'tabler:menu-2',
 }
 
 export type IconName = keyof typeof icons

@@ -1,7 +1,6 @@
 ---
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
-import Icon from '../components/Icon.astro'
 import FeaturedPosts from '../components/posts/FeaturedPosts.astro'
 import RecentPosts from '../components/posts/RecentPosts.astro'
 import RecentProjects from '../components/projects/RecentProjects.astro'
@@ -23,18 +22,9 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 	<Header />
 	<main id="main-content">
 		<section class="mb-6">
-			<h1 class="mt-2 mb-4 mr-2 inline-block text-3xl font-bold sm:mt-4 sm:mb-8 sm:text-5xl">
+			<h1 class="mb-4 mr-2 sm:mt-8 sm:mb-8 sm:text-5xl inline-block text-3xl font-bold">
 				Hi.👋
 			</h1>
-			<a
-				target="_blank"
-				href="/rss.xml"
-				class="rss-link"
-				aria-label="rss feed"
-				title="RSS Feed"
-			>
-				<Icon class="inline-block text-3xl align-text-bottom text-primary" name="rss" />
-			</a>
 
 			<p class="my-2 text-xl">
 				I'm Jose, a web developer from Guatemala 🇬🇹, I enjoy building useful
