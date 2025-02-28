@@ -43,7 +43,7 @@ There are already several ECS engines in JavaScript, some of them are using so s
 Both of them have a similar API and they are mostly type friendly. They are actually very similar.
 
 ## What I'm planning to do
-I have been talking about building my own ECS engine however I did metion game engines as well. So I'm planning to build a simple game engine on top of my ECS engine. Simple but flexible enough to be extended by plugins or something like that. I'm not sure yet.
+I have been talking about building my own ECS engine however I did mention game engines as well. So I'm planning to build a simple game engine on top of my ECS engine. Simple but flexible enough to be extended by plugins or something like that. I'm not sure yet.
 But what does that mean? Well, let's list some of the features I'm planning to have in my game engine:
 
 - Load assets (images, sounds, etc)
