@@ -1,3 +1,5 @@
+import React from 'react'
+
 type FrameProps = {
 	children: React.ReactNode
 }
