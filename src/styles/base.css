@@ -1,9 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+	themes: silk --default, dim --preferdark;
+}
 
 
-@layer base {
+
 	html[data-theme-mode='dark'] #dark-icon {
 		display: block;
 	}
@@ -34,7 +36,7 @@
 	}
 
 	a {
-		@apply outline-2 outline-offset-1 outline-primary;
+		/* @apply outline-2 outline-offset-1 outline-primary; */
 		@apply focus-visible:no-underline focus-visible:outline-dashed;
 	}
 
@@ -51,7 +53,7 @@
 	pre > code {
 		white-space: pre;
 	}
-}
+
 
 @layer components {
 	.entry-list .item a.title {
@@ -88,8 +90,7 @@
     prose-td:border-accent prose-img:mx-auto;
 
 		/* others */
-		@apply prose-p:!text-base-content prose-blockquote:!border-l-primary 
-    prose-blockquote:border-opacity-50 
+		@apply prose-p:!text-base-content prose-blockquote:!border-l-primary/50 
 		prose-blockquote:opacity-80
     prose-figcaption:!text-base-content 
     prose-figcaption:opacity-70 
@@ -110,8 +111,8 @@
 	.prose h3{
 		/* code */
 		@apply prose-code:rounded-md
-		prose-code:border prose-code:border-secondary
-		prose-code:border-opacity-50 prose-code:bg-base-200 prose-code:bg-opacity-100 prose-code:px-0.5 
+		prose-code:border prose-code:border-secondary/50
+		prose-code:bg-base-200/100 prose-code:px-0.5 
 		prose-code:!text-base-content prose-code:before:!content-[''] prose-code:after:!content-[''];
 		
 	}

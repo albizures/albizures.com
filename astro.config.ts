@@ -1,5 +1,5 @@
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
+import tailwindcss from '@tailwindcss/vite'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 import remarkCollapse from 'remark-collapse'
@@ -10,9 +10,6 @@ import { SITE } from './src/config'
 export default defineConfig({
 	site: SITE.website,
 	integrations: [
-		tailwind({
-			applyBaseStyles: false,
-		}),
 		sitemap(),
 		icon(),
 	],
@@ -29,6 +26,7 @@ export default defineConfig({
 		},
 	},
 	vite: {
+		plugins: [tailwindcss()],
 		optimizeDeps: {
 			exclude: ['@resvg/resvg-js'],
 		},
