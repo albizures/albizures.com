@@ -1,15 +1,15 @@
 ---
-import type { PostEntry } from '../../content/config'
-import { slugify } from '../../utils/collections'
-import Icon from '../Icon.astro'
-import LinkButton from '../LinkButton.astro'
-import Section from '../Section.astro'
-import PostCard from './PostCard.astro'
+import type { PostEntry } from '../../content/config';
+import { slugify } from '../../utils/collections';
+import Icon from '../Icon.astro';
+import LinkButton from '../LinkButton.astro';
+import Section from '../Section.astro';
+import PostCard from './PostCard.astro';
 
 export type Props = {
-	posts: Array<PostEntry>
-	amount?: number
-}
+	posts: Array<PostEntry>;
+	amount?: number;
+};
 
 const { posts, amount = 4 } = Astro.props;
 ---

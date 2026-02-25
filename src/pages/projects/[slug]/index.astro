@@ -1,34 +1,34 @@
 ---
-import Header from '../../../components/Header.astro'
-import { getProjects, type ProjectEntry } from '../../../content/config'
-import Layout from '../../../layouts/Layout.astro'
-import { slugify } from '../../../utils/collections'
+import Header from '../../../components/Header.astro';
+import { getProjects, type ProjectEntry } from '../../../content/config';
+import Layout from '../../../layouts/Layout.astro';
+import { slugify } from '../../../utils/collections';
 
 export type Props = {
-	project: ProjectEntry
-}
+	project: ProjectEntry;
+};
 
 export async function getStaticPaths() {
-	const items = await getProjects(({ data }) => !data.draft)
+	const items = await getProjects(({ data }) => !data.draft);
 
 	const result = items.map((project) => ({
 		params: { slug: slugify(project) },
 		props: { project },
-	}))
+	}));
 
-	return [...result]
+	return [...result];
 }
 
-const { project } = Astro.props
+const { project } = Astro.props;
 
 const { Content } = await project.render();
 ---
 
 <Layout>
-	<Header />
+	   <Header />
 	<main id="main-content">
 		<section>
-			<h1 class="text-4xl font-semibold">
+							<h1 class="text-4xl font-semibold">
 				<span class="tracking-wide">{project.data.title}</span>
 			</h1>
 			<h4 class="mt-4 text-lg">{project.data.description}</h4>

@@ -1,13 +1,12 @@
 ---
 export type Props = {
-	level: 1 | 2 | 3 | 4 | 5
-	className?: string
-}
+	level: 1 | 2 | 3 | 4 | 5;
+	className?: string;
+};
 
-const { level = 1, className = '' } = Astro.props
+const { level = 1, className = '' } = Astro.props;
 
-const H = `h${level}`
-
+const H = `h${level}`;
 ---
 <H class:list={{
 	'font-bold': true,

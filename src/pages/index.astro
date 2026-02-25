@@ -1,19 +1,19 @@
 ---
-import Footer from '../components/Footer.astro'
-import Header from '../components/Header.astro'
-import FeaturedPosts from '../components/posts/FeaturedPosts.astro'
-import RecentPosts from '../components/posts/RecentPosts.astro'
-import RecentProjects from '../components/projects/RecentProjects.astro'
-import Socials from '../components/Socials.astro'
-import { SOCIALS } from '../config'
-import { getPosts, getProjects } from '../content/config'
-import Layout from '../layouts/Layout.astro'
-import { sortCollection } from '../utils/collections'
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import FeaturedPosts from '../components/posts/FeaturedPosts.astro';
+import RecentPosts from '../components/posts/RecentPosts.astro';
+import RecentProjects from '../components/projects/RecentProjects.astro';
+import Socials from '../components/Socials.astro';
+import { SOCIALS } from '../config';
+import { getPosts, getProjects } from '../content/config';
+import Layout from '../layouts/Layout.astro';
+import { sortCollection } from '../utils/collections';
 
-const posts = await getPosts()
-const projects = sortCollection(await getProjects())
+const posts = await getPosts();
+const projects = sortCollection(await getProjects());
 
-const sortedPosts = sortCollection(posts)
+const sortedPosts = sortCollection(posts);
 
 const socialCount = SOCIALS.filter((social) => social.active).length;
 ---

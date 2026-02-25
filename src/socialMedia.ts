@@ -1,4 +1,4 @@
-import type { IconName } from './icons'
+import type { IconName } from './icons';
 
 export type SocialMedia =
 	| 'Github'
@@ -12,12 +12,12 @@ export type SocialMedia =
 	| 'Twitch'
 	| 'TikTok'
 	// | 'Mastodon'
-	| 'Steam'
+	| 'Steam';
 
 export type SocialMetaData = {
-	name: SocialMedia
-	icon: IconName
-	href: string
-	active: boolean
-	linkTitle: string
-}
+	name: SocialMedia;
+	icon: IconName;
+	href: string;
+	active: boolean;
+	linkTitle: string;
+};

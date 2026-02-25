@@ -1,16 +1,21 @@
 ---
-import { LOCALE } from '../config'
-import { formatDate, formatTime } from '../utils/dates'
+import { LOCALE } from '../config';
+import { formatDate, formatTime } from '../utils/dates';
 
 type Props = {
-	datetime: string | Date
-	withTime?: boolean
-	size?: 'sm' | 'lg'
-	class?: string
-}
+	datetime: string | Date;
+	withTime?: boolean;
+	size?: 'sm' | 'lg';
+	class?: string;
+};
 
-const { datetime, size = 'sm', class: className, withTime = false } = Astro.props
-const date = new Date(datetime)
+const {
+	datetime,
+	size = 'sm',
+	class: className,
+	withTime = false,
+} = Astro.props;
+const date = new Date(datetime);
 ---
 
 

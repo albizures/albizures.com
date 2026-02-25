@@ -1,24 +1,24 @@
 ---
-import type { PostEntry } from '../content/config'
-import EntryList from '../components/EntryList.astro'
-import Footer from '../components/Footer.astro'
-import Header from '../components/Header.astro'
-import LinkButton from '../components/LinkButton.astro'
-import PostItem from '../components/PostItem.astro'
-import { SITE } from '../config'
-import { slugify } from '../utils/collections'
-import Layout from './Layout.astro'
-import Main from './Main.astro'
+import EntryList from '../components/EntryList.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import LinkButton from '../components/LinkButton.astro';
+import PostItem from '../components/PostItem.astro';
+import { SITE } from '../config';
+import type { PostEntry } from '../content/config';
+import { slugify } from '../utils/collections';
+import Layout from './Layout.astro';
+import Main from './Main.astro';
 
 export type Props = {
-	pageNum: number
-	totalPages: number
-	posts: Array<PostEntry>
-}
+	pageNum: number;
+	totalPages: number;
+	posts: Array<PostEntry>;
+};
 
-const { pageNum, totalPages, posts } = Astro.props
+const { pageNum, totalPages, posts } = Astro.props;
 
-const prev = pageNum > 1 ? '' : 'disabled'
+const prev = pageNum > 1 ? '' : 'disabled';
 const next = pageNum < totalPages ? '' : 'disabled';
 ---
 

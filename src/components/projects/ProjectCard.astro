@@ -1,17 +1,15 @@
 ---
-import ExternalLink from '../ExternalLink.astro'
-import Icon from '../Icon.astro'
-
+import ExternalLink from '../ExternalLink.astro';
+import Icon from '../Icon.astro';
 
 export type Props = {
-	href: string
-	projectUrl: string
-	title: string
-	description: string
-}
+	href: string;
+	projectUrl: string;
+	title: string;
+	description: string;
+};
 
-const { href, title, description, projectUrl } = Astro.props
-
+const { href, title, description, projectUrl } = Astro.props;
 ---
 
 <a href={href}>

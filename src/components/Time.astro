@@ -1,16 +1,15 @@
 ---
-import { LOCALE } from '../config'
-import { formatDate, formatTime } from '../utils/dates'
-import Icon from './Icon.astro'
+import { LOCALE } from '../config';
+import { formatDate, formatTime } from '../utils/dates';
+import Icon from './Icon.astro';
 
 type Props = {
-	date: Date
-	size?: 'sm' | 'lg'
-	withTime?: boolean
-}
+	date: Date;
+	size?: 'sm' | 'lg';
+	withTime?: boolean;
+};
 
-const { date, size = 'sm', withTime = false } = Astro.props
-
+const { date, size = 'sm', withTime = false } = Astro.props;
 ---
 
 <div class="flex items-center space-x-2 opacity-60 hover:opacity-100">

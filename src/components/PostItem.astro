@@ -1,25 +1,24 @@
 ---
-import { slugifyStr } from '../utils/collections'
-import Datetime from './Datetime.astro'
+import { slugifyStr } from '../utils/collections';
+import Datetime from './Datetime.astro';
 
 type Props = {
-	href?: string
+	href?: string;
 	frontmatter: {
-		title: string
-		description: string
-		publicatedAt: Date
-	}
-	secHeading?: boolean
-}
+		title: string;
+		description: string;
+		publicatedAt: Date;
+	};
+	secHeading?: boolean;
+};
 
-const { href, frontmatter, secHeading = true } = Astro.props
-const { title, publicatedAt, description } = frontmatter
+const { href, frontmatter, secHeading = true } = Astro.props;
+const { title, publicatedAt, description } = frontmatter;
 
 const headerProps = {
 	style: { viewTransitionName: slugifyStr(title) },
 	className: 'text-lg font-medium decoration-dashed hover:underline',
-}
-
+};
 ---
 
 <li class="item">

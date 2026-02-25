@@ -1,5 +1,5 @@
-import { SITE } from '../../config'
-import { Frame } from './frame'
+import { SITE } from '../../config';
+import { Frame } from './frame';
 
 export default function site() {
 	return (
@@ -34,5 +34,5 @@ export default function site() {
 				</span>
 			</div>
 		</Frame>
-	)
+	);
 }

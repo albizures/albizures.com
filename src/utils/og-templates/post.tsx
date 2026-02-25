@@ -1,6 +1,6 @@
-import type { PostEntry } from '../../content/config'
-import { SITE } from '../../config'
-import { Frame } from './frame'
+import { SITE } from '../../config';
+import type { PostEntry } from '../../content/config';
+import { Frame } from './frame';
 
 export default function post(post: PostEntry) {
 	return (
@@ -25,8 +25,7 @@ export default function post(post: PostEntry) {
 				}}
 			>
 				<span>
-					by
-					{' '}
+					by{' '}
 					<span
 						style={{
 							color: 'transparent',
@@ -44,5 +43,5 @@ export default function post(post: PostEntry) {
 				</span>
 			</div>
 		</Frame>
-	)
+	);
 }

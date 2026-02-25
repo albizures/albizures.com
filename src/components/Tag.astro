@@ -1,14 +1,13 @@
 ---
-import Icon from './Icon.astro'
+import Icon from './Icon.astro';
 
 export type Props = {
-	name: string
-	size?: 'sm' | 'lg'
-}
+	name: string;
+	size?: 'sm' | 'lg';
+};
 
-const { name, size = 'sm' } = Astro.props
-const lowerCaseName = name.toLowerCase()
-
+const { name, size = 'sm' } = Astro.props;
+const lowerCaseName = name.toLowerCase();
 ---
 
 <li

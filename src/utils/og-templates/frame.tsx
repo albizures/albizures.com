@@ -1,10 +1,10 @@
-import React from 'react'
+import type React from 'react';
 
 type FrameProps = {
-	children: React.ReactNode
-}
+	children: React.ReactNode;
+};
 export function Frame(props: FrameProps) {
-	const { children } = props
+	const { children } = props;
 
 	return (
 		<div
@@ -60,5 +60,5 @@ export function Frame(props: FrameProps) {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }

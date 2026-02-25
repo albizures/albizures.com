@@ -1,24 +1,24 @@
-import sitemap from '@astrojs/sitemap'
-import tailwindcss from '@tailwindcss/vite'
-import icon from 'astro-icon'
-import { defineConfig } from 'astro/config'
-import remarkCollapse from 'remark-collapse'
-import remarkToc from 'remark-toc'
-import { SITE } from './src/config'
+import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
+import icon from 'astro-icon';
+import remarkCollapse from 'remark-collapse';
+import remarkToc from 'remark-toc';
+import { SITE } from './src/config';
 
 // https://astro.build/config
 export default defineConfig({
 	site: SITE.website,
-	integrations: [
-		sitemap(),
-		icon(),
-	],
+	integrations: [sitemap(), icon()],
 	markdown: {
 		remarkPlugins: [
 			remarkToc,
-			[remarkCollapse, {
-				test: 'Table of contents',
-			}],
+			[
+				remarkCollapse,
+				{
+					test: 'Table of contents',
+				},
+			],
 		],
 		shikiConfig: {
 			theme: 'monokai',
@@ -32,4 +32,4 @@ export default defineConfig({
 		},
 	},
 	scopedStyleStrategy: 'where',
-})
+});
