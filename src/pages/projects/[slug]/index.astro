@@ -1,6 +1,7 @@
 ---
 import Header from '../../../components/Header.astro';
-import { getProjects, type ProjectEntry } from '../../../content/config';
+import { render } from 'astro:content';
+import { getProjects, type ProjectEntry } from '../../../content.config';
 import Layout from '../../../layouts/Layout.astro';
 import { slugify } from '../../../utils/collections';
 
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 
-const { Content } = await project.render();
+const { Content } = await render(project);
 ---
 
 <Layout>

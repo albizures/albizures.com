@@ -1,13 +1,10 @@
-import {
-	type CollectionEntry,
-	defineCollection,
-	getCollection,
-	z,
-} from 'astro:content';
-import { SITE } from '../config';
+import { type CollectionEntry, defineCollection, getCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+import { SITE } from './config';
 
 const posts = defineCollection({
-	type: 'content',
+	loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
 	schema: ({ image }) =>
 		z.object({
 			author: z.string().default(SITE.author),
@@ -28,7 +25,7 @@ const posts = defineCollection({
 });
 
 const projects = defineCollection({
-	type: 'content',
+	loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),

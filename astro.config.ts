@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import remarkCollapse from 'remark-collapse';
 import remarkToc from 'remark-toc';
+import { unified } from '@astrojs/markdown-remark';
 import { SITE } from './src/config';
 
 // https://astro.build/config
@@ -11,15 +12,17 @@ export default defineConfig({
 	site: SITE.website,
 	integrations: [sitemap(), icon()],
 	markdown: {
-		remarkPlugins: [
-			remarkToc,
-			[
-				remarkCollapse,
-				{
-					test: 'Table of contents',
-				},
+		processor: unified({
+			remarkPlugins: [
+				remarkToc,
+				[
+					remarkCollapse,
+					{
+						test: 'Table of contents',
+					},
+				],
 			],
-		],
+		}),
 		shikiConfig: {
 			theme: 'monokai',
 			wrap: true,

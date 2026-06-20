@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import { SITE } from '../config';
-import { getPosts } from '../content/config';
+import { getPosts } from '../content.config';
 import { slugify, sortCollection } from '../utils/collections';
 
 export async function GET() {

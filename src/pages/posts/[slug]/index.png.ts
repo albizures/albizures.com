@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getPosts, type PostEntry } from '../../../content/config';
+import { getPosts, type PostEntry } from '../../../content.config';
 import { slugifyStr } from '../../../utils/collections';
 import { generateOgImageForPost } from '../../../utils/ogImages';
 

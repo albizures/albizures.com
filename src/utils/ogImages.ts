@@ -1,6 +1,6 @@
 import { Resvg } from '@resvg/resvg-js';
 import satori, { type SatoriOptions } from 'satori';
-import type { PostEntry } from '../content/config';
+import type { PostEntry } from '../content.config';
 import postOgImage from './og-templates/post';
 import siteOgImage from './og-templates/site';
 

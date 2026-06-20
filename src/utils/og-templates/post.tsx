@@ -1,5 +1,5 @@
 import { SITE } from '../../config';
-import type { PostEntry } from '../../content/config';
+import type { PostEntry } from '../../content.config';
 import { Frame } from './frame';
 
 export default function post(post: PostEntry) {
