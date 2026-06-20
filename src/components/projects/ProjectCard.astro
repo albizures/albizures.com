@@ -16,7 +16,7 @@ const { href, title, description, projectUrl } = Astro.props;
 	<div class="flex gap-3 group">
 	<div class="flex">
 		<div class="card-icon flex-center">
-			<Icon name="rss" class="text-primary text-3xl" />
+			<Icon name="rss" class="text-neutral-content text-3xl" />
 		</div>
 	</div>
 	<div>
@@ -33,7 +33,7 @@ const { href, title, description, projectUrl } = Astro.props;
 	@reference "../../styles/base.css";
 
 	.card-icon {
-		@apply aspect-square w-14 h-14 bg-base-200 rounded-lg;
+		@apply aspect-square w-14 h-14 border border-neutral-content rounded-lg;
 		@apply group-hover:bg-base-300
 	}
 </style>

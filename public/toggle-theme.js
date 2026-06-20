@@ -1,6 +1,6 @@
 const Themes = {
-	Light: 'garden',
-	Dark: 'dim',
+	Light: 'silk',
+	Dark: 'business',
 };
 
 // Get theme data from local storage

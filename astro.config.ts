@@ -1,6 +1,6 @@
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import icon from 'astro-icon';
 import remarkCollapse from 'remark-collapse';
 import remarkToc from 'remark-toc';
@@ -35,4 +35,9 @@ export default defineConfig({
 		},
 	},
 	scopedStyleStrategy: 'where',
+	fonts: [{
+		provider: fontProviders.fontsource(),
+		name: "Inter",
+		cssVariable: "--font-inter",
+	}]
 });

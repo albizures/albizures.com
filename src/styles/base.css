@@ -1,9 +1,18 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-	themes: silk --default, dim --preferdark;
+	themes: silk --default, business --preferdark;
 }
 
+
+@theme inline {
+  --font-sans: var(--font-inter);
+}
+
+
+html {
+  font-size: 15px;
+}
 
 
 	html[data-theme-mode='dark'] #dark-icon {
@@ -22,12 +31,21 @@
 	}
 
 	body {
-		@apply flex min-h-[100svh] flex-col font-mono text-base-content;
+		@apply flex min-h-[100svh] flex-col font-sans text-base-content/80;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-base-content font-bold
 	}
 
 
 	header {
-		@apply px-4 sticky top-0 z-10 bg-base-100;
+		@apply sticky top-0 z-10 bg-base-100;
 	}
 
 	section,

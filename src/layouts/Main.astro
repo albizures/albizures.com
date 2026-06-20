@@ -19,7 +19,7 @@ const { props } = Astro;
 	{
 		'titleTransition' in props
 ? (
-			<h1 class="text-2xl font-semibold sm:text-3xl">
+			<h1 class="text-2xl font-bold sm:text-3xl">
 				{props.pageTitle[0]}
 				<span transition:name={props.titleTransition}>
 					{props.pageTitle[1]}
@@ -27,7 +27,7 @@ const { props } = Astro;
 			</h1>
 		)
 : (
-			<h1 class="text-2xl font-semibold sm:text-3xl">{props.pageTitle}</h1>
+			<h1 class="text-2xl font-bold sm:text-3xl">{props.pageTitle}</h1>
 		)
 	}
 	<p class="mb-6 mt-2 italic">{props.pageDesc}</p>
